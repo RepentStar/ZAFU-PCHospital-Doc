@@ -1,0 +1,9 @@
+[book]
+authors = ["RepentStar"]
+language = "zh-Hans-CN"
+src = "src"
+title = "ZAFU-PCHospital-Doc"
+
+[output.html]
+curly-quotes = true
+git-repository-url = "https://github.com/RepentStar/ZAFU-PCHospital-Doc"
