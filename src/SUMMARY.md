@@ -54,6 +54,6 @@
 
 - [维修守则](Manual/Regulations.md)
 
-- [维修流程]()
+- [维修流程](Manual/Workflow.md)
 
 - [知识沉淀]()
