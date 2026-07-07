@@ -6,7 +6,11 @@ Powered by [mdbook](https://rust-lang.github.io/mdBook/)
 
 ## 编写规范
 
-请务必先阅读此规范再进行编写
+> [!IMPORTANT]
+>
+> - 请务必先阅读此规范再进行编写
+> - 新完成的章节请记得在 `src/SUMMARY.md` 中完成添加，添加了才能在目录中显示
+
 大致目录框架已经写好，如果有新想法也可以添加新内容
 
 ### commit 前缀规范
