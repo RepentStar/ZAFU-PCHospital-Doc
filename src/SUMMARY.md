@@ -13,7 +13,7 @@
     - [认证相关](ZAFUNetWork/Login.md)
     - [有线网络配置]()
     - [无线网络常见问题]()
-    - [校外访问资源]()
+    - [校外访问资源](ZAFUNetWork/RemoteAccess.md)
     - [网络报修流程]()
 
 - [磁盘]()
