@@ -59,3 +59,5 @@
 - [知识沉淀]()
 
 - [品牌官方售后网站](Manual/OfficialSupport.md)
+
+- [周边第三方维修点](Manual/ThirdPartyRepair.md)
