@@ -56,8 +56,10 @@
 
 - [维修流程](Manual/Workflow.md)
 
-- [知识沉淀](Manual/KnowledgeBase.md)
-
 - [品牌官方售后网站](Manual/OfficialSupport.md)
 
 - [周边第三方维修点](Manual/ThirdPartyRepair.md)
+
+- [知识沉淀](Manual/KnowledgeBase/Main.md)
+    - [开机进临时桌面](Manual/KnowledgeBase/WindowsUserProfileService.md)
+    - [暗影精灵开机风扇不转](Manual/KnowledgeBase/OMENFanStop.md)
