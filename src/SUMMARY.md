@@ -56,7 +56,7 @@
 
 - [维修流程](Manual/Workflow.md)
 
-- [知识沉淀]()
+- [知识沉淀](Manual/KnowledgeBase.md)
 
 - [品牌官方售后网站](Manual/OfficialSupport.md)
 
