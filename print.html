@@ -1,0 +1,1517 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans-CN" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>ZAFU-PCHospital-Doc</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-e96d0476.css">
+        <link rel="stylesheet" href="css/chrome-d279d366.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-5183ef0f.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-3b16d7a4.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">ZAFU-PCHospital-Doc</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/ZAFU-PCHospital/ZAFU-PCHospital-Doc" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="浙江农林大学电脑医院文档"><a class="header" href="#浙江农林大学电脑医院文档"><strong>浙江农林大学电脑医院</strong>文档</a></h1>
+<blockquote class="blockquote-tag blockquote-tag-important">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Important</p>
+<p>文档撰写中</p>
+</blockquote>
+<h2 id="组织信息"><a class="header" href="#组织信息">组织信息</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>项目</th><th>内容</th></tr>
+</thead>
+<tbody>
+<tr><td>值班时间</td><td>通常 18:30 — 20:30 <strong>具体情况见 QQ 群内通知</strong></td></tr>
+<tr><td>值班地点</td><td><strong>集贤食堂 319</strong></td></tr>
+<tr><td>QQ 群</td><td><strong>532502904</strong></td></tr>
+<tr><td>所属学校</td><td>浙江农林大学 (ZAFU)</td></tr>
+<tr><td>学校地址</td><td>浙江省杭州市临安区武肃街 666 号</td></tr>
+</tbody>
+</table>
+</div>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="常用快捷键与技巧"><a class="header" href="#常用快捷键与技巧">常用快捷键与技巧</a></h1>
+<p>掌握常用快捷键可以大幅提升日常操作效率，以下整理了 Windows 系统中最常用的快捷键与实用技巧</p>
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>文中的快捷键都不区分大小写</p>
+</blockquote>
+<h2 id="基础快捷键"><a class="header" href="#基础快捷键">基础快捷键</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>快捷键</th><th>功能</th></tr>
+</thead>
+<tbody>
+<tr><td><code>Ctrl + C</code></td><td>复制</td></tr>
+<tr><td><code>Ctrl + X</code></td><td>剪切</td></tr>
+<tr><td><code>Ctrl + V</code></td><td>粘贴</td></tr>
+<tr><td><code>Ctrl + Z</code></td><td>撤销</td></tr>
+<tr><td><code>Ctrl + Y</code></td><td>重做</td></tr>
+<tr><td><code>Ctrl + A</code></td><td>全选</td></tr>
+<tr><td><code>Ctrl + S</code></td><td>保存</td></tr>
+<tr><td><code>Ctrl + F</code></td><td>在当前页面/文件内搜索</td></tr>
+<tr><td><code>Ctrl + H</code></td><td>在当前页面/文件内搜索</td></tr>
+<tr><td><code>Alt + F4</code></td><td>关闭当前窗口/程序</td></tr>
+<tr><td><code>F2</code></td><td>重命名选中文件</td></tr>
+<tr><td><code>Delete</code></td><td>删除文件（移至回收站）</td></tr>
+<tr><td><code>Shift + Delete</code></td><td>永久删除（不经过回收站）<strong>慎重!!!</strong></td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="windows-系统快捷键"><a class="header" href="#windows-系统快捷键">Windows 系统快捷键</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>快捷键</th><th>功能</th></tr>
+</thead>
+<tbody>
+<tr><td><code>Win + E</code></td><td>打开文件资源管理器</td></tr>
+<tr><td><code>Win + D</code></td><td>显示/隐藏桌面</td></tr>
+<tr><td><code>Win + M</code></td><td>最小化所有窗口（不可逆）</td></tr>
+<tr><td><code>Win + L</code></td><td>锁定屏幕</td></tr>
+<tr><td><code>Win + R</code></td><td>打开运行对话框</td></tr>
+<tr><td><code>Win + I</code></td><td>打开系统设置</td></tr>
+<tr><td><code>Win + V</code></td><td>打开剪贴板历史</td></tr>
+<tr><td><code>Win + .</code></td><td>打开表情符号输入</td></tr>
+<tr><td><code>Win + B</code></td><td>选中任务栏右下角左边第一个元素</td></tr>
+<tr><td><code>Win + T</code></td><td>选中任务栏左边第一个元素</td></tr>
+<tr><td><code>Win + N</code></td><td>进入通知重心</td></tr>
+<tr><td><code>Win + 1-9</code></td><td>打开 Dock 栏中第*个程序</td></tr>
+<tr><td><code>Win + Shift + S</code></td><td>截图（区域截图，非 <code>PrintScreen</code>）</td></tr>
+<tr><td><code>Win + Shift + T</code></td><td>OCR（对系统版本有要求）</td></tr>
+<tr><td><code>Win + Tab</code></td><td>打开任务视图</td></tr>
+<tr><td><code>Win + Left / Right</code></td><td>窗口左/右分屏</td></tr>
+<tr><td><code>Win + Up / Down</code></td><td>窗口上/下分屏，全屏</td></tr>
+<tr><td><code>Win + Ctrl + V</code></td><td>打开声音控制面板</td></tr>
+<tr><td><code>Alt + Tab</code></td><td>切换已打开的窗口</td></tr>
+<tr><td><code>Win + Ctrl + Shift + B</code></td><td>重载显卡驱动</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="ms-office-快捷键"><a class="header" href="#ms-office-快捷键">MS Office 快捷键</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>快捷键</th><th>功能</th></tr>
+</thead>
+<tbody>
+<tr><td><code>Win + Ctrl + Alt + Shift + W</code></td><td>全局快捷打开 Word</td></tr>
+<tr><td><code>Win + Ctrl + Alt + Shift + P</code></td><td>全局快捷打开 PPT</td></tr>
+<tr><td><code>Win + Ctrl + Alt + Shift + X</code></td><td>全局快捷打开 Excel</td></tr>
+<tr><td><code>按住 Ctrl + 双击</code></td><td>已安全模式打开 Office</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="浏览器快捷键"><a class="header" href="#浏览器快捷键">浏览器快捷键</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>快捷键</th><th>功能</th></tr>
+</thead>
+<tbody>
+<tr><td><code>Ctrl + W</code></td><td>关闭当前标签页</td></tr>
+<tr><td><code>Ctrl + Shift + W</code></td><td>关闭窗口</td></tr>
+<tr><td><code>Ctrl + T</code></td><td>在新窗口中重新打开最近关闭的标签页</td></tr>
+<tr><td><code>Ctrl + Tab</code></td><td>切换到下一个标签页</td></tr>
+<tr><td><code>Ctrl + R</code></td><td>刷新页面</td></tr>
+<tr><td><code>Ctrl + L</code></td><td>聚焦到地址栏</td></tr>
+<tr><td><code>Alt + D</code></td><td>聚焦到地址栏</td></tr>
+<tr><td><code>Ctrl + K</code></td><td>聚焦到地址栏并进行搜索</td></tr>
+<tr><td><code>Ctrl + Shift + R</code></td><td>硬刷新页面</td></tr>
+<tr><td><code>Alt + Left</code></td><td>后退</td></tr>
+<tr><td><code>Alt + Right</code></td><td>前进</td></tr>
+<tr><td><code>Ctrl + Shift + Tab</code></td><td>切换到上一个标签页</td></tr>
+<tr><td><code>Ctrl + 1-8</code></td><td>切换到对应序号的标签页</td></tr>
+<tr><td><code>Ctrl + 9</code></td><td>切换到最后一个标签页</td></tr>
+<tr><td><code>Ctrl + N</code></td><td>打开新标签页</td></tr>
+<tr><td><code>Ctrl + Shift + N</code></td><td>打开新无痕窗口（Chrome 系）</td></tr>
+<tr><td><code>Ctrl + Shift + P</code></td><td>打开新无痕窗口（FireFox 系）</td></tr>
+<tr><td><code>Ctrl + +</code></td><td>方法页面</td></tr>
+<tr><td><code>Ctrl + -</code></td><td>缩小页面</td></tr>
+<tr><td><code>Ctrl + 0</code></td><td>重置页面缩放</td></tr>
+<tr><td><code>Ctrl + D</code></td><td>将当前页面加入收藏</td></tr>
+<tr><td><code>Ctrl + H</code></td><td>打开历史记录</td></tr>
+<tr><td><code>Ctrl + J</code></td><td>打开下载列表</td></tr>
+<tr><td><code>F11</code></td><td>切换全屏</td></tr>
+<tr><td><code>F12</code></td><td>切换开发者模式</td></tr>
+</tbody>
+</table>
+</div>
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>可以安装 <a href="https://github.com/philc/vimium">Vimium</a> 在浏览器中使用更多快捷键（Vim like）</p>
+</blockquote>
+<h2 id="任务管理器"><a class="header" href="#任务管理器">任务管理器</a></h2>
+<p>当电脑出现卡死、程序无响应时，可以使用快捷键快速调出任务管理器强制结束程序。</p>
+<p>按下 <code>Ctrl + Shift + Esc</code> 直接打开任务管理器，找到无响应的程序，右键选择结束任务即可。</p>
+<p>也可以使用 <code>Ctrl + Alt + Delete</code> 进入安全选项页面，再点击任务管理器。</p>
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>使用 <code>Ctrl + Shift + Esc</code> 是最保险的，在系统主进程死机的时候 <code>Ctrl + Alt + Delete</code> 是无响应的，但是任务管理器会一直监听 <code>Ctrl + Shift + Esc</code></p>
+</blockquote>
+<h1 id="常见问题"><a class="header" href="#常见问题">常见问题</a></h1>
+<h2 id="快捷键无效"><a class="header" href="#快捷键无效">快捷键无效</a></h2>
+<p>请检查是否开启了输入法的快捷键占用，或游戏/软件的全局快捷键冲突，可尝试切换输入法后重试。</p>
+<h2 id="剪贴板历史无法使用"><a class="header" href="#剪贴板历史无法使用">剪贴板历史无法使用</a></h2>
+<p><code>Win + V</code> 首次使用需要手动开启，点击弹出窗口中的<strong>开启</strong>按钮即可启用剪贴板历史功能。</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="正常登录"><a class="header" href="#正常登录">正常登录</a></h1>
+<p>首先连接<code>ZAFU</code>校园网。如果自行准备路由器，请确保路由器连接在通网的网口上，连接上路由器的WLAN，如有问题可以在智慧浙农林进行网络报修询问情况</p>
+<p>访问<a href="http://10.152.250.2/">校园网登录链接</a>。确保正确填写账号和密码，<strong>并选择正确的服务商</strong>。</p>
+<p>如果一切正常将连接校园网</p>
+<h1 id="自助服务"><a class="header" href="#自助服务">自助服务</a></h1>
+<p>在认证成功后会出现自助服务链接，或者可以在校园网内直接访问<a href="https://zfw.zafu.edu.cn/home">链接</a></p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="ZAFUNetWork/assets/Login1.png" alt="自助服务入口"><span class="img-wrapper"><img src="ZAFUNetWork/assets/Login1.png" alt="自助服务入口"></span></label></p>
+<p>可以自助下线设备、配置MAC Auth等</p>
+<h1 id="常见问题-1"><a class="header" href="#常见问题-1">常见问题</a></h1>
+<h2 id="无法访问"><a class="header" href="#无法访问">无法访问</a></h2>
+<p>请确保正确连接校园网</p>
+<h2 id="无法认证"><a class="header" href="#无法认证">无法认证</a></h2>
+<p>请检查校园卡是否欠费</p>
+<h2 id="认证后无法正常上网"><a class="header" href="#认证后无法正常上网">认证后无法正常上网</a></h2>
+<p>如果有设备可以访问校园网，访问<a href="https://zfw.zafu.edu.cn/home">自助服务</a>，手动下线所有设备后再试</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="ZAFUNetWork/assets/Login2.png" alt="一键下线"><span class="img-wrapper"><img src="ZAFUNetWork/assets/Login2.png" alt="一键下线"></span></label></p>
+<h2 id="其他问题"><a class="header" href="#其他问题">其他问题</a></h2>
+<p>可以在智慧浙农林进行网络报修询问情况，或者前往电脑医院值班室询问</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="校外访问资源零信任访问控制系统"><a class="header" href="#校外访问资源零信任访问控制系统">校外访问资源（零信任访问控制系统）</a></h1>
+<h2 id="概述"><a class="header" href="#概述">概述</a></h2>
+<p>学校已部署<strong>零信任访问控制系统</strong>（ZTNA，即深信服 aTrust），用于替代传统的 VPN 及 webVPN 系统。该系统的核心安全理念是：<strong>默认不信任网络内外的任何实体</strong>，在每次访问请求中进行严格的身份验证，从而保护学校资源安全。</p>
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>零信任访问控制系统<strong>仅限校外网络环境</strong>使用。在校内直接连接校园网即可访问校内资源，无需使用本系统。</p>
+</blockquote>
+<h2 id="关键时间节点"><a class="header" href="#关键时间节点">关键时间节点</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>阶段</th><th>时间</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>试运行期</td><td>2025 年 11 月 15 日 — 2026 年 1 月 1 日</td><td>零信任系统与 VPN 系统并行运行，期间请完成客户端安装与登录</td></tr>
+<tr><td>正式切换</td><td>2026 年 1 月 1 日 23:00 起</td><td>传统 VPN 系统停用，所有校外访问统一通过零信任系统进行</td></tr>
+</tbody>
+</table>
+</div>
+<blockquote class="blockquote-tag blockquote-tag-important">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Important</p>
+<p>2026 年 1 月 1 日 23:00 起，传统 VPN 系统将正式停用，其浏览器客户端将无法再打开和成功连接。请在此之前完成零信任客户端的安装与登录。</p>
+</blockquote>
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>下载安装包时请勿使用多线程下载器，使用多线程下载会被限流，使用浏览器自带下载器即可</p>
+</blockquote>
+<h2 id="客户端下载与安装"><a class="header" href="#客户端下载与安装">客户端下载与安装</a></h2>
+<h3 id="下载客户端"><a class="header" href="#下载客户端">下载客户端</a></h3>
+<ol>
+<li>使用浏览器访问专属下载地址：<a href="https://atrust.zafu.edu.cn/portal/#/down_client_new">https://atrust.zafu.edu.cn/portal/#/down_client_new</a></li>
+<li>根据电脑操作系统选择对应版本下载</li>
+<li>下载完记得安装</li>
+</ol>
+<h2 id="登录与使用"><a class="header" href="#登录与使用">登录与使用</a></h2>
+<h3 id="方式一浏览器登录webvpn-方式"><a class="header" href="#方式一浏览器登录webvpn-方式">方式一：浏览器登录（WebVPN 方式）</a></h3>
+<blockquote class="blockquote-tag blockquote-tag-important">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Important</p>
+<p>此方式无需安装客户端，仅适用于已完成与零信任系统对接的信息系统。
+教务系统只支持使用客户端访问！</p>
+</blockquote>
+<ol>
+<li>在浏览器中访问 <a href="https://atrust.zafu.edu.cn">https://atrust.zafu.edu.cn</a></li>
+<li>使用学校<strong>统一身份认证</strong>用户名和密码登录</li>
+<li>登录成功后，操作方式与原 webVPN 系统一致</li>
+</ol>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="ZAFUNetWork/assets/RemoteAccess1.png" alt="登入 WebVPN 页面"><span class="img-wrapper"><img src="ZAFUNetWork/assets/RemoteAccess1.png" alt="登入 WebVPN 页面"></span></label></p>
+<h3 id="方式二客户端登录"><a class="header" href="#方式二客户端登录">方式二：客户端登录</a></h3>
+<ol>
+<li>打开已安装的 aTrust 客户端</li>
+<li>点击<strong>前往浏览器登录</strong>，浏览器将自动打开统一身份认证页面
+<label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="ZAFUNetWork/assets/RemoteAccess2.png" alt="登录过程1"><span class="img-wrapper"><img src="ZAFUNetWork/assets/RemoteAccess2.png" alt="登录过程1"></span></label>
+<label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="ZAFUNetWork/assets/RemoteAccess3.png" alt="登录过程2"><span class="img-wrapper"><img src="ZAFUNetWork/assets/RemoteAccess3.png" alt="登录过程2"></span></label></li>
+<li>使用学校统一身份认证账号（学号或工号）和密码登录</li>
+<li>登录成功后，工作台会显示所有可使用的资源，选择需要的资源即可访问</li>
+<li>使用完毕后，点击左下角图标<strong>退出客户端</strong>，释放资源</li>
+</ol>
+<blockquote class="blockquote-tag blockquote-tag-tip">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p>
+<p>Windows 系统中，aTrust 运行时会在底部任务栏右下角显示图标，双击该图标可打开工作台或退出客户端。</p>
+</blockquote>
+<blockquote class="blockquote-tag blockquote-tag-important">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Important</p>
+<p>aTrust 会建立虚拟网卡以进行加密通信，和 Npcap、Easytier 等虚拟网卡冲突，使用时请关闭所有系统代理和卸载其他虚拟网卡
+如果有其他问题请使用“诊断修复“，根据提示解决</p>
+</blockquote>
+<h3 id="登录账号说明"><a class="header" href="#登录账号说明">登录账号说明</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>登录方式</th><th>账号</th><th>密码</th><th>适用场景</th></tr>
+</thead>
+<tbody>
+<tr><td>统一身份认证</td><td>学号或工号</td><td>与学校统一身份认证一致（与原 VPN 系统一致）</td><td>师生公共访问的信息系统及图书资源</td></tr>
+<tr><td>网络设备运维</td><td>运维账号</td><td>与原 VPN 设备一致</td><td>校内服务器等网络设备运维</td></tr>
+</tbody>
+</table>
+</div>
+<blockquote class="blockquote-tag blockquote-tag-warning">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Warning</p>
+<p>网络设备运维用户<strong>首次登录后请立即更改密码</strong>。</p>
+</blockquote>
+<h2 id="常见问题-2"><a class="header" href="#常见问题-2">常见问题</a></h2>
+<h3 id="浏览器无法拉起客户端"><a class="header" href="#浏览器无法拉起客户端">浏览器无法拉起客户端</a></h3>
+<p>访问 aTrust 门户后，浏览器提示需要下载安装客户端，但实际已安装。</p>
+<p><strong>解决方法：</strong></p>
+<ol>
+<li>确认浏览器版本（Chrome ≥ 142 或 Edge 新版受影响）</li>
+<li>在浏览器地址栏左侧点击网站图标，进入<strong>网站设置</strong></li>
+<li>将<strong>本地网络访问权限</strong>改为<strong>允许</strong></li>
+<li>关闭浏览器后重新登录</li>
+</ol>
+<h4 id="chrome-浏览器设置"><a class="header" href="#chrome-浏览器设置">Chrome 浏览器设置</a></h4>
+<ol>
+<li>点击右上角三个点 → <strong>设置</strong></li>
+<li>依次选择 <strong>隐私与安全</strong> → <strong>网站设置</strong></li>
+<li>向下滚动找到 <strong>本地网络访问权限</strong></li>
+<li>默认行为选择<strong>网站可以请求连接到本地网络上的任何设备</strong></li>
+<li>检查学校网址是否出现在<strong>不允许连接</strong>列表中，如有则删除</li>
+</ol>
+<h4 id="edge-浏览器设置"><a class="header" href="#edge-浏览器设置">Edge 浏览器设置</a></h4>
+<ol>
+<li>点击右上角三个点 → <strong>设置</strong></li>
+<li>依次选择 <strong>隐私、搜索和服务</strong> → <strong>站点权限</strong> → <strong>所有权限</strong></li>
+<li>找到并点击 <strong>本地网络访问</strong></li>
+<li>确保学校网址未出现在<strong>不允许连接</strong>列表中</li>
+</ol>
+<h3 id="连接失败"><a class="header" href="#连接失败">连接失败</a></h3>
+<p>客户端提示“连接失败“。</p>
+<p><strong>解决方法一：检查更新</strong></p>
+<ol>
+<li>点击客户端中的<strong>设置</strong></li>
+<li>点击<strong>检查更新</strong>，如有更新则下载安装最新版本</li>
+</ol>
+<p><strong>解决方法二：关闭 IPv6</strong></p>
+<ol>
+<li>打开<strong>控制面板</strong> → <strong>网络和 Internet</strong> → <strong>网络和共享中心</strong></li>
+<li>点击左侧 <strong>更改适配器设置</strong></li>
+<li>右键当前使用的网络连接，选择<strong>属性</strong></li>
+<li>取消勾选 <strong>Internet 协议版本 6（TCP/IPv6）</strong></li>
+<li>点击<strong>确定</strong></li>
+</ol>
+<h3 id="登录后无法访问资源"><a class="header" href="#登录后无法访问资源">登录后无法访问资源</a></h3>
+<ul>
+<li>请确认是否在校外网络环境下使用（校内无需使用本系统）</li>
+<li>检查账号是否有对应资源的访问权限</li>
+<li>尝试退出客户端后重新登录</li>
+</ul>
+<h3 id="客户端被杀毒软件拦截"><a class="header" href="#客户端被杀毒软件拦截">客户端被杀毒软件拦截</a></h3>
+<ul>
+<li>将 <code>aTrustTray.exe</code> 添加到杀毒软件白名单中</li>
+<li>重新登录门户，点击“启动客户端“即可正常拉起</li>
+</ul>
+<h2 id="其他说明"><a class="header" href="#其他说明">其他说明</a></h2>
+<ul>
+<li>原有 VPN 系统的用户名、密码与零信任系统<strong>完全一致</strong>，无需重新注册</li>
+<li>使用过程中若有问题，请联系信息中心
+<ul>
+<li>联系人：姜老师</li>
+<li>联系电话：63741937（9291937）</li>
+</ul>
+</li>
+</ul>
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>如需了解更多零信任访问控制系统的功能与特性，可参考 <a href="https://www.sangfor.com.cn/sangfor-security/atrust">深信服 aTrust 官方介绍</a>。</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="查看磁盘健康状态"><a class="header" href="#查看磁盘健康状态">查看磁盘健康状态</a></h1>
+<p>硬盘是电脑中存储数据的关键部件，硬盘故障可能导致数据丢失。定期检查硬盘健康状态，可以在故障发生前提前预警，及时备份数据。</p>
+<h2 id="使用-crystaldiskinfo"><a class="header" href="#使用-crystaldiskinfo">使用 CrystalDiskInfo</a></h2>
+<p><a href="https://crystalmark.info/en/software/crystaldiskinfo/">CrystalDiskInfo</a> 是一款免费的硬盘健康状态检测工具，通过读取硬盘的 S.M.A.R.T. 自我监测数据，判断硬盘当前的健康状况。</p>
+<p>图吧工具箱中已内置 CrystalDiskInfo（在磁盘工具列表中名为 <strong>DiskInfo</strong>），可以直接使用，无需单独下载。关于图吧工具箱的介绍与下载，请参考<a href="#图吧工具箱">常用工具推荐</a>。</p>
+<h3 id="操作步骤"><a class="header" href="#操作步骤">操作步骤</a></h3>
+<ol>
+<li>打开图吧工具箱，切换到左侧的<strong>磁盘工具</strong>分类</li>
+<li>双击 <strong>DiskInfo（64位）</strong> 启动 CrystalDiskInfo</li>
+<li>软件会自动识别所有硬盘，在顶部可以切换不同的硬盘</li>
+</ol>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="Disk/assets/CrystalDiskInfo-main.png" alt="CrystalDiskInfo 主界面"><span class="img-wrapper"><img src="Disk/assets/CrystalDiskInfo-main.png" alt="CrystalDiskInfo 主界面"></span></label></p>
+<h3 id="如何判断硬盘健康状态"><a class="header" href="#如何判断硬盘健康状态">如何判断硬盘健康状态</a></h3>
+<h4 id="健康状态指示"><a class="header" href="#健康状态指示">健康状态指示</a></h4>
+<p>软件最显眼的位置会显示硬盘的健康状态，分为三种：</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>状态</th><th>含义</th><th>建议</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>良好（蓝色）</strong></td><td>硬盘工作正常，没有异常指标</td><td>无需处理，定期关注即可</td></tr>
+<tr><td><strong>警告（黄色）</strong></td><td>存在异常指标，但尚未达到危险阈值</td><td>尽快备份重要数据，考虑更换</td></tr>
+<tr><td><strong>不良（红色）</strong></td><td>硬盘已出现严重问题</td><td>立即备份数据，尽快更换硬盘</td></tr>
+</tbody>
+</table>
+</div>
+<h4 id="关键指标解读"><a class="header" href="#关键指标解读">关键指标解读</a></h4>
+<p>S.M.A.R.T. 属性列表中有几项特别值得关注：</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>属性名称</th><th>含义</th><th>需要关注的情况</th></tr>
+</thead>
+<tbody>
+<tr><td>01 严重警告标志</td><td>硬盘严重错误的综合标志</td><td>值不为 0 说明硬盘已有严重问题，建议立即备份数据</td></tr>
+<tr><td>03 可用备用空间</td><td>SSD 用于替换坏块的备用空间</td><td>数值越低，SSD 寿命越接近极限</td></tr>
+<tr><td>05 已用寿命百分比</td><td>SSD 已消耗的寿命</td><td>接近 100% 说明 SSD 即将耗尽寿命，建议尽快更换</td></tr>
+<tr><td>0D 不安全关机计数</td><td>非正常断电的次数</td><td>频繁增加说明存在异常断电问题，避免直接拔电源</td></tr>
+<tr><td>0E 介质与数据完整性错误计数</td><td>数据读写出错次数</td><td>持续增长说明存储介质可能损坏</td></tr>
+</tbody>
+</table>
+</div>
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>部分指标为 NVME SSD 专属，机械硬盘不显示“可用备用空间“、“介质与数据完整性错误计数“和“已用寿命百分比”，SATA 固态硬盘的指标也不同，这是正常现象
+05 寿命指标是基于厂家提供的寿命计算公式得到，和保修情况有关，可能与实际不符，特别是铠侠硬盘，尽管寿命已经降到 0 但是仍然能使用很长一段时间，请根据实际情况判断</p>
+</blockquote>
+<h3 id="多久检查一次"><a class="header" href="#多久检查一次">多久检查一次</a></h3>
+<ul>
+<li>日常使用：每 3-6 个月检查一次即可</li>
+<li>电脑频繁蓝屏/卡顿时：立即检查</li>
+<li>硬盘使用超过 3 年：建议每 1-2 个月检查一次</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="驱动安装与更新"><a class="header" href="#驱动安装与更新">驱动安装与更新</a></h1>
+<p>驱动是操作系统和硬件之间的桥梁——没驱动，硬件就用不了。重装系统、换了新硬件、或者设备出问题，通常都需要装驱动或更新。</p>
+<h2 id="驱动从哪里来"><a class="header" href="#驱动从哪里来">驱动从哪里来</a></h2>
+<p>获取驱动的渠道有很多，但可靠性天差地别：</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>渠道</th><th>可靠性</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>品牌机官网</td><td>首选</td><td>根据型号精确匹配，经过厂商测试，最稳定</td></tr>
+<tr><td>各硬件官网</td><td>推荐</td><td>组装机用户去主板/显卡/网卡等厂商官网下载</td></tr>
+<tr><td>Windows Update</td><td>可用</td><td>自动安装，方便但版本不一定最新</td></tr>
+<tr><td>第三方驱动工具</td><td>不推荐</td><td>驱动精灵、驱动人生等容易装错驱动或捆绑软件</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>一句话：品牌机去官网，组装机去各配件厂商官网，别用第三方驱动工具。</strong></p>
+<hr>
+<h2 id="如何找到并安装正确的驱动"><a class="header" href="#如何找到并安装正确的驱动">如何找到并安装正确的驱动</a></h2>
+<p>不管什么品牌的电脑，装驱动的流程都一样：<strong>确定型号 → 官网搜索 → 下载安装 → 验证</strong>。以一台重装系统后的 Dell 灵越（Inspiron）笔记本为例，走一遍完整过程。</p>
+<h3 id="1-确定电脑型号"><a class="header" href="#1-确定电脑型号">1. 确定电脑型号</a></h3>
+<p>下载驱动前，得先知道自己电脑的确切型号：</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>方法</th><th>适用场景</th><th>操作</th></tr>
+</thead>
+<tbody>
+<tr><td>看机身标签</td><td>笔记本</td><td>翻到底部，找到印有型号的贴纸（如 “Inspiron 15-3511”、“小新 Pro 16”）</td></tr>
+<tr><td>看服务码/序列号</td><td>Dell/联想/惠普等品牌机</td><td>底部标签上有一串数字字母，后文会具体说明</td></tr>
+<tr><td>BIOS 中查看</td><td>标签磨损/台式机</td><td>开机按 <code>F2</code> 或 <code>Del</code>，在 System Information 中可以看到型号</td></tr>
+<tr><td>系统信息中查看</td><td>能进系统但不确定型号</td><td>Win+R 输入 <code>msinfo32</code>，看“系统型号“一栏</td></tr>
+</tbody>
+</table>
+</div>
+<p>记下型号后，就可以去官网下载了。下面两种方式，选一种即可。</p>
+<h3 id="2-方式一通过服务码序列号搜索最快"><a class="header" href="#2-方式一通过服务码序列号搜索最快">2. 方式一：通过服务码/序列号搜索（最快）</a></h3>
+<p>很多品牌给每台设备配了一个唯一的服务码或序列号，在官网输入后能精确匹配到这台机器的出厂配置，驱动列表也是针对这台机器筛选好的。</p>
+<p>以 Dell 为例，笔记本底部贴有 <strong>服务码</strong>（Service Tag），是一个 7 位字母数字组合：</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="Driver/assets/service-tag-location.jpg" alt="Dell 笔记本底部的服务码标签"><span class="img-wrapper"><img src="Driver/assets/service-tag-location.jpg" alt="Dell 笔记本底部的服务码标签"></span></label></p>
+<ol>
+<li>打开 <a href="https://www.dell.com/support/zh-cn">Dell 支持官网</a></li>
+<li>在搜索框中输入服务码，系统自动识别出这台笔记本的型号</li>
+<li>点击 <strong>“驱动程序和下载”</strong> 选项卡</li>
+<li>确认操作系统版本正确（如 Windows 11 64 位）</li>
+<li>在分类列表中找到需要的驱动，点击下载</li>
+</ol>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="Driver/assets/dell-driver-download.png" alt="Dell 官网驱动下载页面"><span class="img-wrapper"><img src="Driver/assets/dell-driver-download.png" alt="Dell 官网驱动下载页面"></span></label></p>
+<p>各品牌的识别码叫法不同，但用法类似：</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>品牌</th><th>识别码名称</th><th>位置</th></tr>
+</thead>
+<tbody>
+<tr><td>Dell</td><td>服务码（Service Tag）</td><td>机身底部</td></tr>
+<tr><td>联想</td><td>序列号（SN）</td><td>机身底部或侧面</td></tr>
+<tr><td>惠普</td><td>产品编号 / 序列号</td><td>机身底部</td></tr>
+<tr><td>华硕</td><td>序列号</td><td>机身底部或 BIOS 中</td></tr>
+<tr><td>华为</td><td>SN</td><td>机身底部</td></tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<p>如果标签磨损看不清，可以开机进 BIOS 找到这些信息。</p>
+</blockquote>
+<h3 id="3-方式二手动选择型号没有服务码也能用"><a class="header" href="#3-方式二手动选择型号没有服务码也能用">3. 方式二：手动选择型号（没有服务码也能用）</a></h3>
+<p>但服务码不是总能找到——组装机没有，老设备标签也可能磨没了。没服务码也能装，所有品牌官网都支持手动选型号。</p>
+<p>同样以 Dell 灵越为例：</p>
+<ol>
+<li>打开 <a href="https://www.dell.com/support/zh-cn">Dell 支持官网</a></li>
+<li>不输入服务码，直接点击 <strong>“浏览所有产品”</strong></li>
+<li>依次选择类别：<strong>笔记本电脑 → Inspiron → Inspiron 15 3511</strong>（根据你记下的型号选择）</li>
+<li>进入后在 <strong>“驱动程序和下载”</strong> 中下载</li>
+</ol>
+<p>其他品牌的操作也是一样的逻辑：</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>品牌</th><th>手动选型号入口</th></tr>
+</thead>
+<tbody>
+<tr><td>联想</td><td>联想服务官网 → 在“驱动下载“中选择产品系列 → 子系列 → 具体型号</td></tr>
+<tr><td>惠普</td><td>HP 支持页面 → “按产品查找” → 笔记本 → 系列 → 型号</td></tr>
+<tr><td>华硕</td><td>ASUS 支持中心 → 搜索型号关键词，或按产品分类浏览</td></tr>
+<tr><td>华为</td><td>华为消费者支持 → 选择产品类型 → 系列 → 型号</td></tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<p>总结：<strong>让官网知道你的确切型号，它就能给你匹配正确的驱动。</strong></p>
+</blockquote>
+<h3 id="4-安装顺序"><a class="header" href="#4-安装顺序">4. 安装顺序</a></h3>
+<p>驱动的安装顺序会影响效率，推荐按以下顺序来：</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>顺序</th><th>类别</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>芯片组（Chipset）</td><td>主板的基础驱动，建议最先装</td></tr>
+<tr><td>2</td><td>网卡（Network）</td><td>有线 + 无线网卡，装完就能联网</td></tr>
+<tr><td>3</td><td>显卡（Video）</td><td>核显和独显驱动，否则屏幕分辨率不对</td></tr>
+<tr><td>4</td><td>声卡（Audio）</td><td>否则没声音</td></tr>
+<tr><td>5</td><td>触摸板/其他</td><td>蓝牙、读卡器、指纹、快捷键等</td></tr>
+</tbody>
+</table>
+</div>
+<p>网卡放第二是为了尽快联网——装完芯片组和网卡就能上网了，剩下的驱动可以直接下载，不用全靠 U 盘拷。</p>
+<blockquote class="blockquote-tag blockquote-tag-tip">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p>
+<p>如果电脑重装系统后没网，有两种办法解决：</p>
+<ul>
+<li><strong>手机 USB 共享网络</strong>：用数据线把手机连到电脑，在手机设置中开启“USB 网络共享“，电脑就能通过手机流量上网</li>
+<li><strong>U 盘拷贝</strong>：用其他能上网的电脑下载网卡驱动，通过 U 盘拷到这台电脑上安装</li>
+</ul>
+</blockquote>
+<p>每装完一个驱动，安装程序可能会提示重启。建议芯片组、网卡、显卡这类关键驱动装完就重启一次，避免多个驱动堆在一起出问题难以排查。</p>
+<h3 id="5-验证驱动是否装好"><a class="header" href="#5-验证驱动是否装好">5. 验证驱动是否装好</a></h3>
+<p>全部装完后，右键“此电脑“ → “管理” → “设备管理器”，检查是否还有黄色感叹号。如果全部正常显示，说明驱动已就绪。</p>
+<p>也可以顺手检查一下：</p>
+<ul>
+<li>屏幕分辨率是否正常（显卡驱动）</li>
+<li>Wi-Fi 能否搜到信号（无线网卡驱动）</li>
+<li>外放/耳机有没有声音（声卡驱动）</li>
+</ul>
+<hr>
+<h2 id="驱动更新"><a class="header" href="#驱动更新">驱动更新</a></h2>
+<p>驱动装完不是就没事了。以下几种情况可能需要更新：</p>
+<ul>
+<li><strong>显卡驱动</strong>：新游戏发布时，NVIDIA/AMD 会发布针对性优化的驱动</li>
+<li><strong>遇到兼容性问题</strong>：某个软件或外设工作异常，可能是驱动太旧</li>
+<li><strong>安全漏洞</strong>：部分驱动存在已知安全漏洞，厂商会发布修复版本</li>
+</ul>
+<p>但如果当前一切正常，不追新也没问题。老设备尤其如此——有些驱动更新后反而出兼容问题，能用就不动。</p>
+<h3 id="显卡驱动更新"><a class="header" href="#显卡驱动更新">显卡驱动更新</a></h3>
+<p>对于独立显卡，建议直接从 NVIDIA 或 AMD 官网下载最新驱动，不要只依赖笔记本官网（官网版本往往偏保守）：</p>
+<ul>
+<li><a href="https://www.nvidia.cn/geforce/drivers/">NVIDIA 驱动下载</a></li>
+<li><a href="https://www.amd.com/zh-cn/support/download/drivers.html">AMD 驱动下载</a></li>
+</ul>
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>笔记本官网提供的显卡驱动经过了厂商的稳定性测试，版本更新慢但更稳妥。NVIDIA/AMD 公版驱动最新但偶有小问题。<strong>日常使用选官网版，玩游戏追新选公版。</strong></p>
+</blockquote>
+<hr>
+<h2 id="各品牌驱动下载入口"><a class="header" href="#各品牌驱动下载入口">各品牌驱动下载入口</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>品牌</th><th>支持网址</th></tr>
+</thead>
+<tbody>
+<tr><td>Dell</td><td>https://www.dell.com/support/zh-cn</td></tr>
+<tr><td>联想</td><td>https://newsupport.lenovo.com.cn</td></tr>
+<tr><td>惠普</td><td>https://support.hp.com</td></tr>
+<tr><td>华硕</td><td>https://www.asus.com.cn/support</td></tr>
+<tr><td>华为</td><td>https://consumer.huawei.com/cn/support</td></tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<p>不管什么品牌，流程都一样：<strong>确定型号 → 官网搜索 → 选对操作系统 → 按顺序下载安装</strong>。</p>
+</blockquote>
+<h2 id="通过-windows-update-手动安装"><a class="header" href="#通过-windows-update-手动安装">通过 Windows Update 手动安装</a></h2>
+<p>在 <a href="https://www.catalog.update.microsoft.com/Home.aspx">Microsoft®Update Catalog</a> 网站上可以检索到 Windows Update 服务器上的所有更新，其中包括微软官方推送的驱动，下载的更新需要使用命令安装，<strong>不推荐</strong>使用。</p>
+<h3 id="安装方式"><a class="header" href="#安装方式">安装方式</a></h3>
+<p>下载的文件为 <code>.msu</code> 和 <code>.cab</code> 文件。</p>
+<ul>
+<li>
+<p><code>.msu</code> 文件双击安装即可，或者使用命令批量静默安装</p>
+<pre><code class="language-bash">wusa C:\Updates\windows10.0-kb5034441-x64.msu /quiet /norestart
+</code></pre>
+</li>
+<li>
+<p><code>.cab</code> 文件需要使用 DISM 挂载到在线或离线系统镜像</p>
+<pre><code class="language-bash">dism /online /add-package /packagepath:"path\to\patch.cab"
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2 id="常见问题-3"><a class="header" href="#常见问题-3">常见问题</a></h2>
+<h3 id="设备管理器里还有未知设备怎么办"><a class="header" href="#设备管理器里还有未知设备怎么办">设备管理器里还有未知设备怎么办？</a></h3>
+<p>右键未知设备 → 属性 → 详细信息 → 硬件 ID，复制那串 <code>VEN_xxxx&amp;DEV_xxxx</code> 的值，去浏览器搜索，就能知道这是什么硬件、需要什么驱动。</p>
+<h3 id="官网提供了多个版本的驱动选哪个"><a class="header" href="#官网提供了多个版本的驱动选哪个">官网提供了多个版本的驱动，选哪个？</a></h3>
+<p>一般选发布日期最新的那个。如果最新版出了问题，再退回上一个版本。</p>
+<h3 id="能不能用-windows-update-自动装"><a class="header" href="#能不能用-windows-update-自动装">能不能用 Windows Update 自动装？</a></h3>
+<p>能，但不建议完全依赖。Windows Update 推送的驱动是厂商提交的 WHQL 认证版本，稳定可靠，但版本更新较慢，且可能不附带厂商的定制管理软件（比如触控板手势设置界面、Fn 快捷键管理程序）。<strong>建议核心驱动（芯片组、网卡、显卡）从官网手动下载，其余可以交给 Windows Update。</strong></p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="常用工具推荐"><a class="header" href="#常用工具推荐">常用工具推荐</a></h1>
+<h2 id="office-tool-plus"><a class="header" href="#office-tool-plus">Office Tool Plus</a></h2>
+<p><a href="https://www.officetool.plus/zh-cn/">Office Tool Plus</a> 一个强大而高效的Office部署软件</p>
+<h3 id="为什么推荐"><a class="header" href="#为什么推荐">为什么推荐</a></h3>
+<ul>
+<li>完全免费，傻瓜式操作，版本多样</li>
+<li>可以自定安装位置，自选需要安装的应用程序</li>
+<li>下载方便，可以通过镜像站下载，也可以直接使用power shell下载命令</li>
+</ul>
+<h3 id="使用步骤"><a class="header" href="#使用步骤">使用步骤</a></h3>
+<ol>
+<li>访问 <a href="https://www.officetool.plus/zh-cn/">Office Tool Plus 官网</a>，点击开始，在介绍栏中找到下载并使用，选择任意镜像站，根据系统架构选择对应文件下载（不确定的话选 x86 版本，兼容性最好）。或者直接使用power shell下载命令（irm https://officetool.plus | iex）</li>
+<li>下载完成后，请将整个压缩包解压到一个合适的位置，例如桌面。请勿在压缩包内直接双击运行 Office Tool Plus.</li>
+<li>双击 Office Tool Plus.exe 以运行程序</li>
+<li>打开软件后，点击部署，在部署 Office 下拉菜单中进行配置，部署模式选择安装，体系结构选择对应（通常 64 位），然后在添加产品选择需要的 Office 版本（建议选择 2024 标准版），语言选择简体中文，然后在应用程序中把不需要的程序取消勾选（例如大多数人用不到 OneDrive、Outlook 和 OneNote）。全部完成后，回到最上方，点击开始部署</li>
+<li>激活：Office 安装完成后需要激活，可参考 <a href="https://github.com/massgravel/Microsoft-Activation-Scripts">Microsoft Activation Scripts</a> 仓库的说明进行操作</li>
+</ol>
+<hr>
+<h2 id="图吧工具箱"><a class="header" href="#图吧工具箱">图吧工具箱</a></h2>
+<p><a href="https://www.tbtool.cn/">图吧工具箱</a> 是一套免费的硬件检测与系统诊断工具合集，集成了 CPU-Z、GPU-Z、AIDA64、CrystalDiskInfo、DisplayX 等常用工具，方便快速排查电脑硬件问题。</p>
+<h3 id="为什么推荐-1"><a class="header" href="#为什么推荐-1">为什么推荐</a></h3>
+<ul>
+<li>一个软件打包了数十款常用硬件工具，免去逐个下载的麻烦</li>
+<li>绿色免安装，解压即用，U盘随身携带方便</li>
+<li>硬件检测、屏幕测试、磁盘健康、温度监控一应俱全</li>
+</ul>
+<h3 id="常用功能"><a class="header" href="#常用功能">常用功能</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>工具</th><th>用途</th></tr>
+</thead>
+<tbody>
+<tr><td>CPU-Z</td><td>查看 CPU、内存、主板详细信息</td></tr>
+<tr><td>GPU-Z</td><td>查看显卡型号、显存、驱动版本</td></tr>
+<tr><td>CrystalDiskInfo</td><td><strong>查看硬盘健康状态</strong>（S.M.A.R.T 信息）</td></tr>
+<tr><td>AIDA64</td><td>系统稳定性测试、硬件信息导出</td></tr>
+<tr><td>DisplayX</td><td>屏幕坏点检测、显示器色彩测试</td></tr>
+<tr><td>HWMonitor</td><td>监控 CPU/显卡温度、风扇转速</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="使用场景"><a class="header" href="#使用场景">使用场景</a></h3>
+<ul>
+<li><strong>电脑卡顿排查</strong>：用 HWMonitor 查看温度是否过高，用 CrystalDiskInfo 检查硬盘是否即将故障</li>
+<li><strong>购机验机</strong>：全新/二手电脑到手后，用 DisplayX 检测屏幕坏点，用 CPU-Z 核对配置是否与描述一致</li>
+<li><strong>蓝屏分析</strong>：用 AIDA64 进行稳定性压力测试，定位硬件故障</li>
+</ul>
+<h3 id="注意事项"><a class="header" href="#注意事项">注意事项</a></h3>
+<ul>
+<li>部分工具（如 AIDA64 压力测试）会占用大量系统资源，测试时请注意散热，同时记得接入电源适配器，保证性能完全释放</li>
+<li>请从官网下载，避免使用第三方下载站，防止捆绑软件</li>
+</ul>
+<hr>
+<h2 id="建议"><a class="header" href="#建议">建议</a></h2>
+<ul>
+<li><strong>下载任何软件，优先选择官网</strong>，避免从 xx软件园、xx下载站 等第三方渠道下载</li>
+<li>安装过程中注意取消勾选捆绑的附加软件</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="开机黑屏"><a class="header" href="#开机黑屏">开机黑屏</a></h1>
+<p>按下电源键，风扇在转、键盘灯亮了，但屏幕始终是黑的——开机黑屏的原因很多，大部分情况不用急着送修，按步骤排查，很多问题自己能解决。</p>
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>本文中默认为笔记本电脑</p>
+</blockquote>
+<h2 id="先观察机器是什么反应"><a class="header" href="#先观察机器是什么反应">先观察机器是什么反应</a></h2>
+<p>屏幕不亮有好几种情况，先看清楚机器是什么反应，别急着拆机：</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>按下电源键后的反应</th><th>可能的原因</th><th>先试什么</th></tr>
+</thead>
+<tbody>
+<tr><td>完全没反应，灯不亮、风扇不转</td><td>没电了、适配器坏了、静电保护</td><td><a href="#供电排查">供电排查</a></td></tr>
+<tr><td>电源灯亮、风扇转，屏幕始终不亮</td><td>内存接触不良、显卡/主板问题</td><td><a href="#外接显示器判断">外接显示器判断</a></td></tr>
+<tr><td>能看到品牌 logo，进桌面时黑屏</td><td>显卡驱动出问题、系统更新失败</td><td><a href="#系统层面排查">系统层面排查</a></td></tr>
+<tr><td>屏幕有微弱背光但没有画面</td><td>屏幕本身或排线问题、显卡问题</td><td><a href="#外接显示器判断">外接显示器判断</a></td></tr>
+<tr><td>开机黑屏几秒后自动断电</td><td>散热异常或主板短路保护</td><td>先拔掉所有外设（USB 设备、外接硬盘等）再试，无效则送修</td></tr>
+</tbody>
+</table>
+</div>
+<blockquote class="blockquote-tag blockquote-tag-tip">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p>
+<p>华硕部分机型可以用 <code>Fn + F7</code> 开关屏幕。屏幕突然不亮了，先按一下试试——可能只是不小心关掉了屏幕。</p>
+<p>如果能看到品牌 logo 再黑屏，说明硬件自检通过了，直接跳到<a href="#系统层面排查">系统层面排查</a>，不用先拆机。</p>
+</blockquote>
+<hr>
+<h2 id="供电排查"><a class="header" href="#供电排查">供电排查</a></h2>
+<h3 id="先确认不是没电了"><a class="header" href="#先确认不是没电了">先确认不是没电了</a></h3>
+<p>有时候“开不了机“真的只是没电了：</p>
+<ol>
+<li>插上电源适配器，看充电指示灯亮不亮</li>
+<li>等 5-10 分钟再尝试开机</li>
+<li>如果充电灯不亮，看看适配器是不是松了，或者换个插座试试</li>
+</ol>
+<blockquote>
+<p>很多笔记本电池彻底耗尽后，刚插上电不会有立刻反应，等几分钟充进去一点电再开机就行。</p>
+</blockquote>
+<h3 id="释放静电"><a class="header" href="#释放静电">释放静电</a></h3>
+<p>笔记本有时会因为静电积累导致不开机——插着电也完全没反应。先把静电放掉：</p>
+<ol>
+<li>拔掉电源适配器</li>
+<li>长按电源键 <strong>30 秒以上</strong>，别松手</li>
+<li>插回电源，再尝试开机</li>
+</ol>
+<blockquote>
+<p>大部分笔记本（包括内置电池的）用上面的方法就能释放静电。个别机型长按后依然没反应，可能是电池始终在给主板供电，需要断开电池排线才能彻底放电——这个操作要拆后盖，没拆过机的话建议找电医帮忙。</p>
+</blockquote>
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>Type-C 充电的笔记本（小新 Pro、MateBook 等），如果充电口坏了，可以试试另一个 Type-C 口——有些机型多个口都支持充电。</p>
+</blockquote>
+<hr>
+<h2 id="外接显示器判断"><a class="header" href="#外接显示器判断">外接显示器判断</a></h2>
+<p>风扇转但屏幕不亮，外接一个显示器就能判断问题出在屏幕还是主机：</p>
+<ol>
+<li>找一台正常的外接显示器或电视，用 HDMI 线连上笔记本</li>
+<li>开机后按 <code>Win + P</code>，等一两秒，按 <code>↓</code> 切换显示模式，每切一次按回车，看外接屏幕有没有反应</li>
+<li>看外接显示器有没有画面：</li>
+</ol>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>外接显示器状态</th><th>怎么回事</th><th>怎么办</th></tr>
+</thead>
+<tbody>
+<tr><td>外接有画面</td><td>屏幕、排线或者屏幕供电出了问题</td><td>自己搞不定，送修</td></tr>
+<tr><td>外接也没有画面</td><td>主板、显卡或者内存出问题了</td><td>继续下面的排查</td></tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h2 id="硬件层面排查"><a class="header" href="#硬件层面排查">硬件层面排查</a></h2>
+<p>外接显示器也没画面，问题在主机内部，多数是内存条接触不良。</p>
+<h3 id="重新插拔内存条"><a class="header" href="#重新插拔内存条">重新插拔内存条</a></h3>
+<p>笔记本经常搬来搬去，内存条可能震松了，这是开机黑屏最常见的原因。插拔内存条有一定风险，如果拆过机可以自己试试，没拆过的建议找电医帮忙。</p>
+<blockquote>
+<p>部分轻薄本（MateBook X Pro、小新 Pro 部分型号等）的内存是焊在主板上的，没有可插拔的内存条。不确定自己机器能不能换内存的话，先查一下型号规格。</p>
+</blockquote>
+<blockquote class="blockquote-tag blockquote-tag-warning">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Warning</p>
+<p>拆开后盖如果看到的布局和照片不一样，或者不确定哪个是内存条、哪个是电池排线，不要硬来。</p>
+</blockquote>
+<ol>
+<li>关机，<strong>拔掉电源适配器</strong></li>
+<li>拧下后盖螺丝，取下后盖</li>
+</ol>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="Hardware/BootIssue/assets/笔记本拆后盖照片.jpg" alt="拆开后盖的笔记本内部"><span class="img-wrapper"><img src="Hardware/BootIssue/assets/笔记本拆后盖照片.jpg" alt="拆开后盖的笔记本内部"></span></label></p>
+<blockquote>
+<p>请忽略图中鼓包的电池——<del>这是一颗 C4</del>。</p>
+</blockquote>
+<ol start="3">
+<li><strong>找到电池连接主板的排线，轻轻拔开。拆装完内存后记得插回去。</strong> 这一步不能跳过——内置电池的机器即使拔了电源，主板仍然带电</li>
+<li>找到内存条，两侧有金属卡扣固定</li>
+</ol>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="Hardware/BootIssue/assets/内存条照片.jpg" alt="内存条在插槽中的位置"><span class="img-wrapper"><img src="Hardware/BootIssue/assets/内存条照片.jpg" alt="内存条在插槽中的位置"></span></label></p>
+<ol start="5">
+<li>双手同时向外拨开两侧卡扣，内存条会自动弹起</li>
+<li>观察金色的触点有没有发黑、发暗（氧化了），如果有，用橡皮擦轻轻擦几下，再用刷子把橡皮屑清掉</li>
+<li>将内存条以斜角对准插槽插进去，往下按平，听到两侧卡扣“咔嗒“锁紧即可</li>
+<li>插回电池排线，装回后盖，拧上螺丝</li>
+</ol>
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>插内存条时注意方向——金手指上有个缺口，要和插槽里的凸起对齐。方向不对是插不进去的，别硬来。</p>
+</blockquote>
+<h3 id="最小系统测试"><a class="header" href="#最小系统测试">最小系统测试</a></h3>
+<p>如果重新插拔内存后还黑屏，且有两条内存条，可以每条单独试：</p>
+<ol>
+<li>只插一条内存条，开机看亮不亮</li>
+<li>换另一条，再试</li>
+<li>对每一个插槽都进行单一内存条测试</li>
+<li>如果某一条不亮，说明这条坏了，换一条内存就行；如果某一个插槽怎么都点不亮，说明内存通道有问题，可能是主板或者 CPU 问题</li>
+<li>如果每条单独试都不亮，问题大概率不在内存，继续排查</li>
+</ol>
+<h3 id="重置-bios"><a class="header" href="#重置-bios">重置 BIOS</a></h3>
+<p>有些笔记本也有独立的 CMOS 电池</p>
+<p>CMOS 电池耗尽或 BIOS 配置出错也可能导致黑屏，尤其是老机器：</p>
+<blockquote class="blockquote-tag blockquote-tag-warning">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Warning</p>
+<p>CMOS 电池在主板上位置不统一，有些藏在散热模组或排线下面。找不到的话不要乱拔，直接找电医。</p>
+</blockquote>
+<ol>
+<li>拔掉电源适配器，断开电池排线</li>
+<li>找到主板上的纽扣电池（CMOS 电池），取下，等 30 秒后装回</li>
+<li>装回后盖，开机看是否恢复正常</li>
+</ol>
+<hr>
+<h2 id="系统层面排查"><a class="header" href="#系统层面排查">系统层面排查</a></h2>
+<p>如果开机能看到品牌 logo（联想/Dell/华硕的图标），硬件自检是通过的。问题出在进系统的过程中。</p>
+<h3 id="进安全模式"><a class="header" href="#进安全模式">进安全模式</a></h3>
+<p>安全模式只加载最基本的驱动，如果安全模式能进，多半是显卡驱动或最近装的软件出了问题：</p>
+<ol>
+<li>开机看到 Windows 图标时强制关机（长按电源键），重复 2-3 次</li>
+<li>再次开机时 Windows 会自动进入“高级启动选项“界面</li>
+</ol>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="Hardware/BootIssue/assets/高级启动选项界面.jpg" alt="高级启动选项界面"><span class="img-wrapper"><img src="Hardware/BootIssue/assets/高级启动选项界面.jpg" alt="高级启动选项界面"></span></label></p>
+<ol start="3">
+<li>选择 <strong>疑难解答 → 高级选项 → 启动设置 → 重启</strong></li>
+<li>按 <code>4</code> 或 <code>F4</code> 进入安全模式</li>
+</ol>
+<p>进了安全模式之后，可以做这些操作：</p>
+<ul>
+<li>使用 DDU 工具卸载显卡驱动，重启后让系统自动重装。如果问题依旧，参考<a href="Driver/Graphics.html">显卡驱动问题</a></li>
+<li>卸载最近安装的软件或系统更新</li>
+<li>打开命令提示符，先输入 <code>DISM /Online /Cleanup-Image /RestoreHealth</code> 修复系统映像（需要联网，需要进入带网络的安全模式；或者使用本地镜像恢复），再输入 <code>sfc /scannow</code> 检查系统文件</li>
+</ul>
+<hr>
+<h2 id="一些品牌的特殊功能"><a class="header" href="#一些品牌的特殊功能">一些品牌的特殊功能</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>品牌</th><th>功能</th><th>怎么用</th></tr>
+</thead>
+<tbody>
+<tr><td>Dell</td><td>诊断指示灯</td><td>开机时电源灯按特定频率闪烁，闪烁次数对应故障代码，可在 Dell 官网查到含义</td></tr>
+<tr><td>联想</td><td>Novo 一键恢复孔</td><td>机身侧面有一个小孔，用取卡针捅一下进入恢复界面</td></tr>
+<tr><td>华硕</td><td>屏幕开关快捷键</td><td><code>Fn + F7</code> 可以关闭/打开屏幕，有时候是不小心按到了</td></tr>
+<tr><td>惠普</td><td>硬件诊断</td><td>开机时按 <code>F2</code> 进入 HP PC Hardware Diagnostics，可以跑内存和硬盘测试</td></tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h2 id="什么时候该送修"><a class="header" href="#什么时候该送修">什么时候该送修</a></h2>
+<p>以下情况不建议自己折腾，直接找电医或维修店：</p>
+<ul>
+<li>外接显示器有画面，但自带屏不亮 → 大概率是屏线或屏幕问题，需要拆屏</li>
+<li>以上所有方法都试过了，仍然黑屏 → 主板/显卡/CPU 层面的故障</li>
+<li>闻到焦味、机身异常发烫 → 立刻断电，不要继续尝试</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="维修守则"><a class="header" href="#维修守则">维修守则</a></h1>
+<ul>
+<li>我们是志愿性质社团，值班时间不得向客户私底收取费用</li>
+<li>在涉及到可能会丢失保修的操作时(换硅脂等)请先询问客户保修信息</li>
+<li>遇到对自己有难度的操作时需要按照自己的技术水平考虑是否放弃或向其他干事求助，不要硬上</li>
+<li>遇到有风险的操作时需先向客户表明：我们是志愿性质社团，遇到困难我们会放弃，且之后如果出现任何损失我们不承担责任。在客户表示同意后再进行进一步维修</li>
+<li>清理 C 盘、重装系统等高风险操作前，务必与客户确认是否有重要文件未备份</li>
+<li>辩证的听取客户的描述，尽可能复现问题后再分析解决</li>
+<li>维修前必须检查电脑的开关机状态，不要相信客户在这方面的描述</li>
+<li>每个客户的素质客观存在差异。遇到难搞的客户，可以选择不接，这是我们的权利。但一旦接手，就不要对客户进行过多评论，尤其是在客户在场时，不要发表极端言论</li>
+<li>一人一机，非紧急情况不要将机子转交给他人维修<sup class="footnote-reference" id="fr-1-1"><a href="#footnote-1">1</a></sup></li>
+<li>维修完请记得填维修记录表<sup class="footnote-reference" id="fr-2-1"><a href="#footnote-2">2</a></sup></li>
+<li>保持良好的桌面环境，修完机请整理好用过的工具</li>
+</ul>
+<h2 id="非值班时间接私活准则"><a class="header" href="#非值班时间接私活准则">非值班时间接私活准则</a></h2>
+<ul>
+<li>提前和客户确认好收取的费用</li>
+<li>非值班时间所接私活是个人行为，和电脑医院组织无关，请自行承担所有责任</li>
+<li>告知客户电脑医院是志愿性质，平时值班维修免费，接私活是个人行为</li>
+</ul>
+<hr>
+<ol class="footnote-definition">
+<li id="footnote-1">
+<p>避免交接过程中对<em>螺丝个数、螺丝位置、已经拆下的无线接收器、已经拆下的排线等</em>描述不清/不足，造成交接人员对场景了解不足而导致<em>螺丝忘拧、螺丝丢失、无线接收器丢失、电源或风扇排线忘接等</em>事故 <a href="#fr-1-1">↩</a></p>
+</li>
+<li id="footnote-2">
+<p>一方面是加分，另一方面是留存客户联系方式，以免后续自己发现问题后通知不到机主 <a href="#fr-2-1">↩</a></p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="维修流程"><a class="header" href="#维修流程">维修流程</a></h1>
+<h2 id="简要通用维修流程"><a class="header" href="#简要通用维修流程">简要通用维修流程</a></h2>
+<ol>
+<li>询问客户要处理的业务</li>
+<li>确认业务，让客户填写表格。表格很重要！可以被看作是免责声明，当用户签字之后即生效</li>
+<li>维修结束之后，把表格的剩余部分填写完，视作一次维修纪录</li>
+<li>维持桌面整洁，业务结束后及时清理桌面，把工具放回原位</li>
+</ol>
+<hr>
+<h2 id="详细通用维修流程"><a class="header" href="#详细通用维修流程">详细通用维修流程</a></h2>
+<h3 id="流程总览"><a class="header" href="#流程总览">流程总览</a></h3>
+<pre><code>线上/线下接单  →  免责声明  →  诊断排查  →  维修操作  →  客户验收  →  记录归档
+                                                            ↓（修不好）
+                                                    老手兜底 / 转官方售后
+</code></pre>
+<h3 id="接单"><a class="header" href="#接单">接单</a></h3>
+<ul>
+<li><strong>线上</strong>：通过 QQ 群 / 微信群等渠道预约，说明故障现象。</li>
+<li><strong>线下</strong>：固定值班时间在集贤 319 接待，直接带电脑来即可。</li>
+</ul>
+<h3 id="诊断排查"><a class="header" href="#诊断排查">诊断排查</a></h3>
+<ul>
+<li><strong>谁接谁负责到底</strong>，接待者全程跟踪该机。</li>
+<li>思路：先听描述 → 复现故障 → 从软件到硬件逐步排查 → 不确定时咨询老手，<strong>不要盲目动手</strong>。</li>
+</ul>
+<h3 id="维修操作"><a class="header" href="#维修操作">维修操作</a></h3>
+<ul>
+<li>工具准备就绪再动手（PE 盘、螺丝刀套装、备件等）。</li>
+<li>涉及数据风险的操作，需再次口头确认数据已备份。</li>
+<li>原则：<strong>自己有多少能力揽多少活，宁可少做不可做错。</strong></li>
+</ul>
+<h3 id="修不好的情况"><a class="header" href="#修不好的情况">修不好的情况</a></h3>
+<p>遇到超出能力范围的问题，处理优先级：</p>
+<ol>
+<li><strong>老手兜底</strong> — 找组织内更有经验的成员接手</li>
+<li><strong>转介官方售后</strong> — 参考知识沉淀中的品牌售后链接和客服热线</li>
+<li>不要强行维修，更不要推荐没有把握的第三方</li>
+</ol>
+<h3 id="客户验收"><a class="header" href="#客户验收">客户验收</a></h3>
+<ul>
+<li>维修完成后，<strong>让客户当场操作测试</strong>，确认故障已解决。</li>
+<li>对所做操作给予简要说明，提醒后续注意事项（定期备份、不装来路不明的软件等）。</li>
+</ul>
+<h3 id="记录归档"><a class="header" href="#记录归档">记录归档</a></h3>
+<ul>
+<li>修完后在在线表格/系统中记录：故障原因、处理步骤、最终结果。</li>
+<li>维持桌面整洁，工具放回原位。</li>
+</ul>
+<hr>
+<h2 id="具体维修项目流程"><a class="header" href="#具体维修项目流程">具体维修项目流程</a></h2>
+<h3 id="清灰"><a class="header" href="#清灰">清灰</a></h3>
+<ol>
+<li>先检查机子有没有关机，如果没有关机就帮客户关机</li>
+<li>利用桌面上的（电动）螺丝刀取下电脑背面的螺丝（注：个别螺丝是防脱螺丝，很难取下来）</li>
+<li>取下螺丝之后，用吸盘或者撬棒将电脑盖子一点点撬开，当撬开的差不多时，取下电脑盖子（注：注意安全，个别机子盖子很难拆开（点名 omen），不要暴力拆开从而损坏了客户机子）</li>
+<li>用鼓风机对准风扇，先吸后吹，一边用鼓风机吹吸，一边用小刷子刷风扇，直至风扇上无明显灰尘</li>
+<li>关掉鼓风机，固定住风扇，用小刷子慢慢刷，将风扇上的灰尘清理干净</li>
+<li>扣上盖子，拧回螺丝，开启电脑检查（注：个别电脑在断过电或者开盖之后需要插上电源才能开机，需客户自带充电线）</li>
+</ol>
+<h3 id="换硅脂"><a class="header" href="#换硅脂">换硅脂</a></h3>
+<ol>
+<li>先检查机子有没有关机，如果没有关机就帮客户关机</li>
+<li>利用桌面上的（电动）螺丝刀取下电脑背面的螺丝</li>
+<li>取下螺丝之后，用吸盘或者撬棒将电脑盖子一点点撬开，当撬开的差不多时，取下电脑盖子</li>
+<li>找到电池排线，断开电池排线，左右摇摆着将电源线断开
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>天选系列有致命小铁片，如果对手法没有自信可以断开电池端的排线而不是主板端的排线</p>
+</blockquote>
+</li>
+<li>用螺丝刀拆除散热模块上的螺丝，按照螺丝旁边的数字顺序拧螺丝，先把每个螺丝都拧松一点，然后再将螺丝一个一个拧下来，接着拆下散热模块</li>
+<li>用酒精片擦除散热模块以及CPU上的残留硅脂</li>
+<li>接下来介绍两种涂抹方法：
+<ol>
+<li>硅脂，将硅脂均匀涂到CPU上</li>
+<li>相变片，先将相变片与CPU大小进行比对，裁剪至合适大小，先撕去相变片一侧的塑料薄膜，将相变片置于CPU之上，再撕下另一侧的塑料薄膜</li>
+</ol>
+</li>
+<li>然后将散热模块盖上，把螺丝按照倒序一颗一颗拧回去，每颗螺丝都拧一点，最后再拧紧，重新接回电源
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>散热模块的螺丝一定要拧紧，这关乎散热效果</p>
+</blockquote>
+</li>
+<li>扣上盖子，拧回螺丝，开启电脑检查（注：个别电脑在断过电或者开盖之后需要插上电源才能开机，需客户自带充电线）</li>
+<li>扣上盖子，拧回螺丝，重启电脑（注：个别电脑需要插上电源才能重启，需客户自带充电线）</li>
+</ol>
+<hr>
+<h2 id="客户沟通话术"><a class="header" href="#客户沟通话术">客户沟通话术</a></h2>
+<blockquote>
+<p><strong>沟通铁三角：态度温和 · 立场坚定 · 不卑不亢。</strong></p>
+</blockquote>
+<h3 id="黄金原则"><a class="header" href="#黄金原则">黄金原则</a></h3>
+<blockquote>
+<p><strong>维修之前先管人，再管电脑。</strong></p>
+<p>让客户觉得被尊重、被认真对待——哪怕问题没解决，他也不会怪你。</p>
+</blockquote>
+<h3 id="免责声明与数据风险"><a class="header" href="#免责声明与数据风险">免责声明与数据风险</a></h3>
+<p><strong>场景</strong>：客户要求清 C 盘 / 重装系统，但数据没备份。</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>要点</th><th>参考话术</th></tr>
+</thead>
+<tbody>
+<tr><td>开场确认</td><td>“你电脑上有哪些比较重要的文件？比如桌面上、文档里、微信聊天记录这些？”</td></tr>
+<tr><td>说明风险</td><td>“重装系统 / 清理 C 盘会把桌面和文档里的文件全部清掉，<strong>不可恢复</strong>。论文、照片、作业这些如果有的话，一定要先备份。”</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="客户质疑方案"><a class="header" href="#客户质疑方案">客户质疑方案</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>要点</th><th>参考话术</th></tr>
+</thead>
+<tbody>
+<tr><td>解释原因</td><td>“目前这个问题最可能的原因是系统文件损坏 / 垃圾太多 / 驱动冲突，重装是最干净彻底的方案。”</td></tr>
+<tr><td>回应担忧</td><td>“重装后原来的软件确实要重新装。如果你有哪几个特别重要找不到安装包的，我可以先帮你记下来，装完一起找。”</td></tr>
+<tr><td>让客户决定</td><td>“如果你暂时不想重装，我也可以先试试别的办法，但效果不一定理想。你决定。”</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="修不好时的拒绝与转介"><a class="header" href="#修不好时的拒绝与转介">修不好时的拒绝与转介</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>要点</th><th>参考话术</th></tr>
+</thead>
+<tbody>
+<tr><td>诚实说明</td><td>“这个情况比较复杂 / 涉及硬件维修，我们这边目前处理不了，强行弄可能更麻烦。”</td></tr>
+<tr><td>给出方向</td><td>“建议去<strong>官方售后</strong>，他们可以免费检测，保修期内还能免费维修。”</td></tr>
+<tr><td>提供信息</td><td>“你电脑是 [品牌]，售后电话 [热线]，最近售后点在 [地点]。需要帮你查具体地址吗？”</td></tr>
+<tr><td>老手兜底</td><td>“不急的话我问问更有经验的同学，看他能不能帮你看。”</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="应对固执傲慢的客户"><a class="header" href="#应对固执傲慢的客户">应对固执/傲慢的客户</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>原则</th><th>要点</th></tr>
+</thead>
+<tbody>
+<tr><td>保持冷静</td><td>不急不躁，语速放慢。<strong>绝不跟客户对呛。</strong></td></tr>
+<tr><td>坚守底线</td><td>“我理解你的想法。但按我的经验，这样做可能导致 [风险]，我不能冒这个险。”</td></tr>
+<tr><td>给台阶</td><td>“要不你回去考虑一下？我们每周都在，想好了随时来。”</td></tr>
+<tr><td>终极退路</td><td>“如果你觉得不合适，完全没问题，可以去官方售后，他们更专业。”</td></tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<p>绝对不要在客户在场时发表极端言论、贬低客户或背后议论被听到。</p>
+</blockquote>
+<h3 id="收费说明"><a class="header" href="#收费说明">收费说明</a></h3>
+<blockquote class="blockquote-tag blockquote-tag-important">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Important</p>
+<p>我们是志愿性质社团！！平时值班时间进行维修不得收费！！</p>
+</blockquote>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>要点</th><th>参考话术</th></tr>
+</thead>
+<tbody>
+<tr><td>提前说明</td><td>值班时间维修免费，耗材需要自带</td></tr>
+<tr><td>透明化</td><td>可以给客户看购买记录或网上价格。</td></tr>
+</tbody>
+</table>
+</div>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="各大品牌电脑售后官网汇总"><a class="header" href="#各大品牌电脑售后官网汇总">各大品牌电脑售后官网汇总</a></h1>
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>保修查询需输入主机编号（S/N），可在机身底部或 BIOS 中查看。</p>
+<p>送修前请先备份数据！</p>
+</blockquote>
+<h3 id="联想--lenovo"><a class="header" href="#联想--lenovo">联想 / Lenovo</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>功能</th><th>地址</th></tr>
+</thead>
+<tbody>
+<tr><td>服务官网</td><td>https://newsupport.lenovo.com.cn/</td></tr>
+<tr><td>保修查询</td><td>https://newsupport.lenovo.com.cn/guardeploySearch.html</td></tr>
+<tr><td>服务网点查询</td><td>https://newsupport.lenovo.com.cn/serverNet.html</td></tr>
+<tr><td>驱动下载</td><td>https://newsupport.lenovo.com.cn/driveDownloads_index.html</td></tr>
+<tr><td>备件价格</td><td>https://newsupport.lenovo.com.cn/pricesearchpc-search.html</td></tr>
+<tr><td>Think 系列</td><td>https://newthink.lenovo.com.cn/</td></tr>
+<tr><td>客服热线</td><td>400-990-8888</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="戴尔--dell"><a class="header" href="#戴尔--dell">戴尔 / Dell</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>功能</th><th>地址</th></tr>
+</thead>
+<tbody>
+<tr><td>服务官网</td><td>https://www.dell.com/support/home/zh-cn</td></tr>
+<tr><td>保修查询</td><td>https://www.dell.com/support/contractservices/zh-cn/</td></tr>
+<tr><td>服务网点查询</td><td>https://www.dell.com/support/diagnose/zh-cn/servicecenter</td></tr>
+<tr><td>驱动下载</td><td>在型号详情页面中</td></tr>
+<tr><td>客服热线</td><td>400-881-1858</td></tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<p>Dell 支持在网页端识别电脑型号</p>
+</blockquote>
+<h3 id="惠普--hp"><a class="header" href="#惠普--hp">惠普 / HP</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>功能</th><th>地址</th></tr>
+</thead>
+<tbody>
+<tr><td>服务官网</td><td>https://support.hp.com/cn-zh</td></tr>
+<tr><td>服务中心查询</td><td>https://support.hp.com/cn-zh/help/service-center</td></tr>
+<tr><td>驱动下载</td><td>https://support.hp.com/cn-zh/drivers</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="华硕--asus"><a class="header" href="#华硕--asus">华硕 / ASUS</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>功能</th><th>地址</th></tr>
+</thead>
+<tbody>
+<tr><td>服务官网</td><td>https://www.asus.com.cn/support/</td></tr>
+<tr><td>服务中心查询</td><td>https://www.asus.com.cn/support/service-center/chinese%20mainland/</td></tr>
+<tr><td>驱动下载</td><td>https://www.asus.com.cn/support/download-center/</td></tr>
+<tr><td>客服热线</td><td>400-600-6655（笔记本电脑）</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="宏碁--acer"><a class="header" href="#宏碁--acer">宏碁 / Acer</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>功能</th><th>地址</th></tr>
+</thead>
+<tbody>
+<tr><td>中国官网</td><td>https://www.acer.com.cn/index.html</td></tr>
+<tr><td>服务支持</td><td>https://www.acer.com.cn/support.html?type=1</td></tr>
+<tr><td>保修查询</td><td>https://www.acer.com.cn/myhelp.html?type=1&amp;serverid=14</td></tr>
+<tr><td>客服热线</td><td>400-700-1000</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="华为--huawei"><a class="header" href="#华为--huawei">华为 / Huawei</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>功能</th><th>地址</th></tr>
+</thead>
+<tbody>
+<tr><td>服务官网</td><td>https://consumer.huawei.com/cn/support/</td></tr>
+<tr><td>保修期及权益查询</td><td>https://consumer.huawei.com/cn/support/warranty-query/</td></tr>
+<tr><td>服务店查询</td><td>https://consumer.huawei.com/cn/support/service-center/</td></tr>
+<tr><td>维修服务</td><td>https://consumer.huawei.com/cn/support/break-fix/?acceptChannel=repair</td></tr>
+<tr><td>备件价格</td><td>https://consumer.huawei.com/cn/support/sparepart-price/</td></tr>
+<tr><td>服务进度查询</td><td>https://consumer.huawei.com/cn/support/inquiry/</td></tr>
+<tr><td>客服热线</td><td>950800（7×24 小时）</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="小米--xiaomi"><a class="header" href="#小米--xiaomi">小米 / Xiaomi</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>功能</th><th>地址</th></tr>
+</thead>
+<tbody>
+<tr><td>服务官网</td><td>https://www.mi.com/service/</td></tr>
+<tr><td>申请售后 / 预约维修</td><td>https://www.mi.com/service/aftersale/front</td></tr>
+<tr><td>服务网点查询</td><td>https://www.mi.com/service/sitelist</td></tr>
+<tr><td>客服热线</td><td>950816</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="荣耀--honor"><a class="header" href="#荣耀--honor">荣耀 / Honor</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>功能</th><th>地址</th></tr>
+</thead>
+<tbody>
+<tr><td>服务官网</td><td>https://www.honor.com/cn/support/</td></tr>
+<tr><td>保修政策</td><td>https://www.honor.com/cn/support/warrantypolicy/</td></tr>
+<tr><td>服务门店查询</td><td>https://www.honor.com/cn/support/service-center/</td></tr>
+<tr><td>寄修服务</td><td>https://www.honor.com/cn/support/express-repair/</td></tr>
+<tr><td>备件价格</td><td>https://www.honor.com/cn/support/sparepart-price/</td></tr>
+<tr><td>服务进度查询</td><td>https://www.honor.com/cn/support/inquiry/</td></tr>
+<tr><td>预约到店</td><td>https://www.honor.com/cn/support/reservation/</td></tr>
+<tr><td>驱动下载</td><td>https://www.honor.com/cn/support/downloads/</td></tr>
+<tr><td>客服热线</td><td>95030</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="微软-surface"><a class="header" href="#微软-surface">微软 Surface</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>功能</th><th>地址</th></tr>
+</thead>
+<tbody>
+<tr><td>服务官网</td><td>https://support.microsoft.com/zh-cn/surface</td></tr>
+<tr><td>保修查询</td><td>https://support.microsoft.com/accounts-billing/manage/check-your-microsoft-warranty-and-create-service-orders</td></tr>
+<tr><td>获取维修服务</td><td>https://support.microsoft.com/zh-CN/Surface/warranty/how-to-get-service-or-repair-for-surface</td></tr>
+<tr><td>客服热线</td><td>400-820-3800</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="微星--msi"><a class="header" href="#微星--msi">微星 / MSI</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>功能</th><th>地址</th></tr>
+</thead>
+<tbody>
+<tr><td>服务官网</td><td>https://www.msi.cn/support</td></tr>
+<tr><td>保修状态查询</td><td>https://account.msi.cn/zh-Hans/services/warranty-book</td></tr>
+<tr><td>服务网点查询</td><td>https://www.msi.cn/page/service-location-new</td></tr>
+<tr><td>维修进度查询</td><td>https://account.msi.cn/zh-Hans/services/inquiry-history</td></tr>
+<tr><td>驱动下载</td><td>https://www.msi.cn/support/download</td></tr>
+<tr><td>笔记本远程服务</td><td>https://www.msi.cn/page/Remote-service-nb</td></tr>
+<tr><td>笔记本授权的代理信息</td><td>https://www.msi.cn/page/service-location-nb/</td></tr>
+</tbody>
+</table>
+</div>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="学校周边第三方维修点"><a class="header" href="#学校周边第三方维修点">学校周边第三方维修点</a></h1>
+<blockquote class="blockquote-tag blockquote-tag-important">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Important</p>
+<p>这不是广告！！！不做任何第三方推荐！！！</p>
+<p>这不是广告！！！不做任何第三方推荐！！！</p>
+<p>这不是广告！！！不做任何第三方推荐！！！</p>
+<p>一定要注意甄别！！！纯良商家是不存在的！！！</p>
+</blockquote>
+<ul>
+<li>跃乐</li>
+<li>光亮电脑</li>
+</ul>
+<p>如果愿意走的更远，可以去杭州市中心的百脑汇快修，那里的师傅技术更好经验更丰富，而且你可以在旁边盯着</p>
+<blockquote class="blockquote-tag blockquote-tag-important">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Important</p>
+<p>去第三方维修店时不要让你的电脑离开你的视线！！！不要把你的电脑交给他们“等他们有空了再修”！！！都是骗局！！！</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="知识沉淀"><a class="header" href="#知识沉淀">知识沉淀</a></h1>
+<p>经验与案例存档</p>
+<p>此为概括性经验章节，具体案例请查看子章节</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="开机进临时桌面"><a href="#开机进临时桌面" class="header">开机进临时桌面</a></h1>
+<h2 id="windows-user-profile-service-加载失败开机进临时桌面"><a class="header" href="#windows-user-profile-service-加载失败开机进临时桌面">Windows User Profile Service 加载失败（开机进临时桌面）</a></h2>
+<p><strong>问题描述</strong></p>
+<p>暗影精灵9系列（HP OMEN 17-ck2xxx / Windows 11）笔记本电脑开机时偶尔黑屏，显示白色文字 “User Profile System” 配置同步/读取失败。继续开机进入桌面后，桌面主题、个性化等一切配置都变为类似重装系统后的初始化状态，仅用户头像保留。重启一到两次后桌面恢复正常，但此时用户头像反而变成默认灰色 SVG 线条人物 icon。发生频率约一两周一次。</p>
+<p><strong>根因分析</strong></p>
+<p>桌面主题同步失败的根本原因也是因为 Windows 用户 profile 加载失败，所以只需要关注后者：</p>
+<ul>
+<li>Windows 事件日志中出现 <code>User Profiles Service</code> 错误：事件 ID <strong>1511</strong>（临时 profile 登录）、<strong>1500/1508/1509</strong>（Access is denied）、<strong>1552</strong>（<code>User hive is loaded by another process (Registry Lock)</code>）<sup class="footnote-reference" id="fr-win-prof-1-1"><a href="#footnote-win-prof-1">1</a></sup> <sup class="footnote-reference" id="fr-win-prof-2-1"><a href="#footnote-win-prof-2">2</a></sup>。</li>
+<li><code>C:\Users</code> 下产生多轮 <code>TEMP.USERNAME.*</code> 临时用户目录残留。</li>
+<li>开机时用户注册表 hive（<code>NTUSER.DAT</code>）被进程（如 <code>svchost.exe</code>、<code>WmiPrvSE.exe</code>、<code>GamingServices</code>）锁住，Windows 加载不了 <code>C:\Users\username</code>，于是进入临时桌面。</li>
+<li>Windows <strong>Fast Startup</strong>（快速启动）是触发条件：关机会将部分内核/驱动状态写入休眠文件，若上次用户 hive 未卸载干净，坏状态会被带入下次开机。而 Restart 不走 Fast Startup，所以重启能恢复<sup class="footnote-reference" id="fr-win-prof-3-1"><a href="#footnote-win-prof-3">3</a></sup>。</li>
+</ul>
+<p><strong>解决方案</strong></p>
+<ol>
+<li>
+<p><strong>关闭 Windows Fast Startup</strong>（管理员 PowerShell）<sup class="footnote-reference" id="fr-win-prof-4-1"><a href="#footnote-win-prof-4">4</a></sup>：</p>
+<pre><code class="language-powershell">powercfg /h off
+</code></pre>
+<p>或修改注册表 <code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Power</code>，将 <code>HiberbootEnabled</code> 设为 <code>0</code>。</p>
+</li>
+<li>
+<p><strong>清理残留临时 profile 目录</strong>：删除 <code>C:\Users\TEMP.USERNAME.*</code> 目录（仅几百字节的 profile 壳文件，不含用户数据）。若遇到 <code>SFAP\cache1.bin</code> 等系统保护文件无法删除，可跳过，不影响修复。</p>
+</li>
+<li>
+<p><strong>备份注册表</strong>：修改前导出相关注册表项为 <code>.reg</code> 文件存放桌面。</p>
+</li>
+</ol>
+<p><strong>影响说明</strong></p>
+<p>关闭 Fast Startup 后开机速度可能慢几秒到十几秒，但不会影响启动应用加载和重启速度。现代 SSD 机器体感差异通常不明显。</p>
+<p><strong>验证方法</strong></p>
+<ul>
+<li>查看注册表 <code>HiberbootEnabled</code> 值是否为 <code>0</code></li>
+<li>确认 <code>Current profile: C:\Users\username</code>、<code>Loaded: True</code>、<code>Status: 0</code></li>
+<li>事件日志不再出现 1511/1552 等 profile 错误</li>
+</ul>
+<hr>
+<ol class="footnote-definition">
+<li id="footnote-win-prof-1">
+<p><a href="https://learn.microsoft.com/en-us/troubleshoot/windows-server/user-profiles-and-logon/troubleshoot-user-profiles-events">Troubleshoot user profiles with events — Microsoft Learn</a> <a href="#fr-win-prof-1-1">↩</a></p>
+</li>
+<li id="footnote-win-prof-2">
+<p><a href="https://www.thewindowsclub.com/user-hive-is-loaded-by-another-process-registry-lock-event-id-1552">User hive is loaded by another process (Registry Lock), Event ID 1552 — TheWindowsClub</a> <a href="#fr-win-prof-2-1">↩</a></p>
+</li>
+<li id="footnote-win-prof-3">
+<p><a href="https://learn.microsoft.com/en-us/answers/questions/4145747/user-profile-cannot-be-loaded-with-fast-startup">User profile cannot be loaded with Fast Startup — Microsoft Q&amp;A</a> <a href="#fr-win-prof-3-1">↩</a></p>
+</li>
+<li id="footnote-win-prof-4">
+<p><a href="https://www.windowscentral.com/software-apps/windows-11/how-to-enable-or-disable-fast-startup-on-windows-11">How to disable Fast Startup on Windows 11 — Windows Central</a> <a href="#fr-win-prof-4-1">↩</a></p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="暗影精灵开机风扇不转"><a href="#暗影精灵开机风扇不转" class="header">暗影精灵开机风扇不转</a></h1>
+<h2 id="hp-omen-笔记本关机移动后开机风扇不转--cpu-积热降频"><a class="header" href="#hp-omen-笔记本关机移动后开机风扇不转--cpu-积热降频">HP OMEN 笔记本关机移动后开机风扇不转 / CPU 积热降频</a></h2>
+<p><strong>问题描述</strong></p>
+<p>暗影精灵9系列（HP OMEN 17-ck2xxx）笔记本电脑在关机拔掉电源，有概率启动时风扇完全不转动，导致快速积热、CPU 降频、系统卡爆。只能通过强制关机再开机解决，重启后风扇恢复正常。</p>
+<p><strong>根因分析</strong></p>
+<ul>
+<li>机器型号 <code>HP OMEN by HP Laptop 17-ck2xxx</code>，BIOS 版本 <code>F.15</code>（发布时间 2025-12-11）。</li>
+<li>Windows 事件日志出现 <strong>Kernel-Processor-Power 37</strong>：CPU 速度被系统固件限制，持续约 71 秒。与“风扇不转 → 积热 → CPU 降频 → 卡爆“的症状一致。</li>
+<li>网上搜索后发现该系列已知存在 <strong>EC（嵌入式控制器）/BIOS 风扇初始化异常</strong>：风扇随机停转或启动后不进入正常工作模式，重启/EC reset 后恢复<sup class="footnote-reference" id="fr-win-pow37-1-1"><a href="#footnote-win-pow37-1">1</a></sup> <sup class="footnote-reference" id="fr-win-pow37-2-1"><a href="#footnote-win-pow37-2">2</a></sup>。</li>
+</ul>
+<p><strong>解决方案</strong></p>
+<p>按顺序尝试：</p>
+<ol>
+<li>
+<p><strong>EC Reset</strong><sup class="footnote-reference" id="fr-win-pow37-3-1"><a href="#footnote-win-pow37-3">3</a></sup></p>
+<ul>
+<li>关机，拔掉电源适配器</li>
+<li>长按电源键 <strong>20–30 秒</strong></li>
+<li>等待 <strong>1 分钟</strong>（让电容彻底放电）</li>
+<li>插电开机</li>
+</ul>
+</li>
+<li>
+<p><strong>更新 BIOS</strong><sup class="footnote-reference" id="fr-win-pow37-4-1"><a href="#footnote-win-pow37-4">4</a></sup></p>
+<ul>
+<li>访问 HP 官网驱动下载页，搜索 OMEN 17-ck2000 系列</li>
+<li>将 BIOS 从 F.15 更新到最新版本</li>
+</ul>
+</li>
+<li>
+<p><strong>更新 HP 固件与管理软件</strong><sup class="footnote-reference" id="fr-win-pow37-2-2"><a href="#footnote-win-pow37-2">2</a></sup></p>
+<ul>
+<li>通过 <strong>HP Support Assistant</strong> 检查所有固件/驱动更新</li>
+<li>通过 <strong>OMEN Gaming Hub</strong> 检查性能/散热相关固件更新</li>
+</ul>
+</li>
+</ol>
+<p><strong>验证方法</strong></p>
+<ul>
+<li>事件日志不再出现 <code>Kernel-Processor-Power 37</code></li>
+<li>迁移场景（关机移动后重新开机）风扇正常转动、无异常积热</li>
+</ul>
+<hr>
+<ol class="footnote-definition">
+<li id="footnote-win-pow37-1">
+<p><a href="https://h30434.www3.hp.com/t5/Gaming-Notebooks/OMEN-17-3-inch-Gaming-Laptop-PC-17-ck2000-FANS-NOT-WORKING/td-p/9414583">OMEN 17-ck2000 FANS NOT WORKING — HP Community</a> <a href="#fr-win-pow37-1-1">↩</a></p>
+</li>
+<li id="footnote-win-pow37-2">
+<p><a href="https://www.reddit.com/r/HPOmen/comments/11n3zaz/common_issues_troubleshooting_guide_from_former/">Common Issues Troubleshooting Guide From Former HP OMEN Support Team — Reddit</a> <a href="#fr-win-pow37-2-1">↩</a> <a href="#fr-win-pow37-2-2">↩2</a></p>
+</li>
+<li id="footnote-win-pow37-3">
+<p><a href="https://support.hp.com/us-en/document/ish_3939773-2337994-16">HP Laptop — Performing a Hard Reset (EC Reset)</a> <a href="#fr-win-pow37-3-1">↩</a></p>
+</li>
+<li id="footnote-win-pow37-4">
+<p><a href="https://support.hp.com/us-en/drivers/laptops">HP OMEN 17-ck2000 驱动与 BIOS 下载</a> <a href="#fr-win-pow37-4-1">↩</a></p>
+</li>
+</ol>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-09f2665d.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-609e4cb8.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+
+    </div>
+    </body>
+</html>

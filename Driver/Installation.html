@@ -1,0 +1,426 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans-CN" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>驱动安装与更新 - ZAFU-PCHospital-Doc</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../favicon-8114d1fc.png">
+        <link rel="stylesheet" href="../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../css/general-e96d0476.css">
+        <link rel="stylesheet" href="../css/chrome-d279d366.css">
+        <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex-5183ef0f.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc-3b16d7a4.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">ZAFU-PCHospital-Doc</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/ZAFU-PCHospital/ZAFU-PCHospital-Doc" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="驱动安装与更新"><a class="header" href="#驱动安装与更新">驱动安装与更新</a></h1>
+<p>驱动是操作系统和硬件之间的桥梁——没驱动，硬件就用不了。重装系统、换了新硬件、或者设备出问题，通常都需要装驱动或更新。</p>
+<h2 id="驱动从哪里来"><a class="header" href="#驱动从哪里来">驱动从哪里来</a></h2>
+<p>获取驱动的渠道有很多，但可靠性天差地别：</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>渠道</th><th>可靠性</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>品牌机官网</td><td>首选</td><td>根据型号精确匹配，经过厂商测试，最稳定</td></tr>
+<tr><td>各硬件官网</td><td>推荐</td><td>组装机用户去主板/显卡/网卡等厂商官网下载</td></tr>
+<tr><td>Windows Update</td><td>可用</td><td>自动安装，方便但版本不一定最新</td></tr>
+<tr><td>第三方驱动工具</td><td>不推荐</td><td>驱动精灵、驱动人生等容易装错驱动或捆绑软件</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>一句话：品牌机去官网，组装机去各配件厂商官网，别用第三方驱动工具。</strong></p>
+<hr>
+<h2 id="如何找到并安装正确的驱动"><a class="header" href="#如何找到并安装正确的驱动">如何找到并安装正确的驱动</a></h2>
+<p>不管什么品牌的电脑，装驱动的流程都一样：<strong>确定型号 → 官网搜索 → 下载安装 → 验证</strong>。以一台重装系统后的 Dell 灵越（Inspiron）笔记本为例，走一遍完整过程。</p>
+<h3 id="1-确定电脑型号"><a class="header" href="#1-确定电脑型号">1. 确定电脑型号</a></h3>
+<p>下载驱动前，得先知道自己电脑的确切型号：</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>方法</th><th>适用场景</th><th>操作</th></tr>
+</thead>
+<tbody>
+<tr><td>看机身标签</td><td>笔记本</td><td>翻到底部，找到印有型号的贴纸（如 “Inspiron 15-3511”、“小新 Pro 16”）</td></tr>
+<tr><td>看服务码/序列号</td><td>Dell/联想/惠普等品牌机</td><td>底部标签上有一串数字字母，后文会具体说明</td></tr>
+<tr><td>BIOS 中查看</td><td>标签磨损/台式机</td><td>开机按 <code>F2</code> 或 <code>Del</code>，在 System Information 中可以看到型号</td></tr>
+<tr><td>系统信息中查看</td><td>能进系统但不确定型号</td><td>Win+R 输入 <code>msinfo32</code>，看“系统型号“一栏</td></tr>
+</tbody>
+</table>
+</div>
+<p>记下型号后，就可以去官网下载了。下面两种方式，选一种即可。</p>
+<h3 id="2-方式一通过服务码序列号搜索最快"><a class="header" href="#2-方式一通过服务码序列号搜索最快">2. 方式一：通过服务码/序列号搜索（最快）</a></h3>
+<p>很多品牌给每台设备配了一个唯一的服务码或序列号，在官网输入后能精确匹配到这台机器的出厂配置，驱动列表也是针对这台机器筛选好的。</p>
+<p>以 Dell 为例，笔记本底部贴有 <strong>服务码</strong>（Service Tag），是一个 7 位字母数字组合：</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="./assets/service-tag-location.jpg" alt="Dell 笔记本底部的服务码标签"><span class="img-wrapper"><img src="./assets/service-tag-location.jpg" alt="Dell 笔记本底部的服务码标签"></span></label></p>
+<ol>
+<li>打开 <a href="https://www.dell.com/support/zh-cn">Dell 支持官网</a></li>
+<li>在搜索框中输入服务码，系统自动识别出这台笔记本的型号</li>
+<li>点击 <strong>“驱动程序和下载”</strong> 选项卡</li>
+<li>确认操作系统版本正确（如 Windows 11 64 位）</li>
+<li>在分类列表中找到需要的驱动，点击下载</li>
+</ol>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="./assets/dell-driver-download.png" alt="Dell 官网驱动下载页面"><span class="img-wrapper"><img src="./assets/dell-driver-download.png" alt="Dell 官网驱动下载页面"></span></label></p>
+<p>各品牌的识别码叫法不同，但用法类似：</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>品牌</th><th>识别码名称</th><th>位置</th></tr>
+</thead>
+<tbody>
+<tr><td>Dell</td><td>服务码（Service Tag）</td><td>机身底部</td></tr>
+<tr><td>联想</td><td>序列号（SN）</td><td>机身底部或侧面</td></tr>
+<tr><td>惠普</td><td>产品编号 / 序列号</td><td>机身底部</td></tr>
+<tr><td>华硕</td><td>序列号</td><td>机身底部或 BIOS 中</td></tr>
+<tr><td>华为</td><td>SN</td><td>机身底部</td></tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<p>如果标签磨损看不清，可以开机进 BIOS 找到这些信息。</p>
+</blockquote>
+<h3 id="3-方式二手动选择型号没有服务码也能用"><a class="header" href="#3-方式二手动选择型号没有服务码也能用">3. 方式二：手动选择型号（没有服务码也能用）</a></h3>
+<p>但服务码不是总能找到——组装机没有，老设备标签也可能磨没了。没服务码也能装，所有品牌官网都支持手动选型号。</p>
+<p>同样以 Dell 灵越为例：</p>
+<ol>
+<li>打开 <a href="https://www.dell.com/support/zh-cn">Dell 支持官网</a></li>
+<li>不输入服务码，直接点击 <strong>“浏览所有产品”</strong></li>
+<li>依次选择类别：<strong>笔记本电脑 → Inspiron → Inspiron 15 3511</strong>（根据你记下的型号选择）</li>
+<li>进入后在 <strong>“驱动程序和下载”</strong> 中下载</li>
+</ol>
+<p>其他品牌的操作也是一样的逻辑：</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>品牌</th><th>手动选型号入口</th></tr>
+</thead>
+<tbody>
+<tr><td>联想</td><td>联想服务官网 → 在“驱动下载“中选择产品系列 → 子系列 → 具体型号</td></tr>
+<tr><td>惠普</td><td>HP 支持页面 → “按产品查找” → 笔记本 → 系列 → 型号</td></tr>
+<tr><td>华硕</td><td>ASUS 支持中心 → 搜索型号关键词，或按产品分类浏览</td></tr>
+<tr><td>华为</td><td>华为消费者支持 → 选择产品类型 → 系列 → 型号</td></tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<p>总结：<strong>让官网知道你的确切型号，它就能给你匹配正确的驱动。</strong></p>
+</blockquote>
+<h3 id="4-安装顺序"><a class="header" href="#4-安装顺序">4. 安装顺序</a></h3>
+<p>驱动的安装顺序会影响效率，推荐按以下顺序来：</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>顺序</th><th>类别</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>芯片组（Chipset）</td><td>主板的基础驱动，建议最先装</td></tr>
+<tr><td>2</td><td>网卡（Network）</td><td>有线 + 无线网卡，装完就能联网</td></tr>
+<tr><td>3</td><td>显卡（Video）</td><td>核显和独显驱动，否则屏幕分辨率不对</td></tr>
+<tr><td>4</td><td>声卡（Audio）</td><td>否则没声音</td></tr>
+<tr><td>5</td><td>触摸板/其他</td><td>蓝牙、读卡器、指纹、快捷键等</td></tr>
+</tbody>
+</table>
+</div>
+<p>网卡放第二是为了尽快联网——装完芯片组和网卡就能上网了，剩下的驱动可以直接下载，不用全靠 U 盘拷。</p>
+<blockquote class="blockquote-tag blockquote-tag-tip">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p>
+<p>如果电脑重装系统后没网，有两种办法解决：</p>
+<ul>
+<li><strong>手机 USB 共享网络</strong>：用数据线把手机连到电脑，在手机设置中开启“USB 网络共享“，电脑就能通过手机流量上网</li>
+<li><strong>U 盘拷贝</strong>：用其他能上网的电脑下载网卡驱动，通过 U 盘拷到这台电脑上安装</li>
+</ul>
+</blockquote>
+<p>每装完一个驱动，安装程序可能会提示重启。建议芯片组、网卡、显卡这类关键驱动装完就重启一次，避免多个驱动堆在一起出问题难以排查。</p>
+<h3 id="5-验证驱动是否装好"><a class="header" href="#5-验证驱动是否装好">5. 验证驱动是否装好</a></h3>
+<p>全部装完后，右键“此电脑“ → “管理” → “设备管理器”，检查是否还有黄色感叹号。如果全部正常显示，说明驱动已就绪。</p>
+<p>也可以顺手检查一下：</p>
+<ul>
+<li>屏幕分辨率是否正常（显卡驱动）</li>
+<li>Wi-Fi 能否搜到信号（无线网卡驱动）</li>
+<li>外放/耳机有没有声音（声卡驱动）</li>
+</ul>
+<hr>
+<h2 id="驱动更新"><a class="header" href="#驱动更新">驱动更新</a></h2>
+<p>驱动装完不是就没事了。以下几种情况可能需要更新：</p>
+<ul>
+<li><strong>显卡驱动</strong>：新游戏发布时，NVIDIA/AMD 会发布针对性优化的驱动</li>
+<li><strong>遇到兼容性问题</strong>：某个软件或外设工作异常，可能是驱动太旧</li>
+<li><strong>安全漏洞</strong>：部分驱动存在已知安全漏洞，厂商会发布修复版本</li>
+</ul>
+<p>但如果当前一切正常，不追新也没问题。老设备尤其如此——有些驱动更新后反而出兼容问题，能用就不动。</p>
+<h3 id="显卡驱动更新"><a class="header" href="#显卡驱动更新">显卡驱动更新</a></h3>
+<p>对于独立显卡，建议直接从 NVIDIA 或 AMD 官网下载最新驱动，不要只依赖笔记本官网（官网版本往往偏保守）：</p>
+<ul>
+<li><a href="https://www.nvidia.cn/geforce/drivers/">NVIDIA 驱动下载</a></li>
+<li><a href="https://www.amd.com/zh-cn/support/download/drivers.html">AMD 驱动下载</a></li>
+</ul>
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>笔记本官网提供的显卡驱动经过了厂商的稳定性测试，版本更新慢但更稳妥。NVIDIA/AMD 公版驱动最新但偶有小问题。<strong>日常使用选官网版，玩游戏追新选公版。</strong></p>
+</blockquote>
+<hr>
+<h2 id="各品牌驱动下载入口"><a class="header" href="#各品牌驱动下载入口">各品牌驱动下载入口</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>品牌</th><th>支持网址</th></tr>
+</thead>
+<tbody>
+<tr><td>Dell</td><td>https://www.dell.com/support/zh-cn</td></tr>
+<tr><td>联想</td><td>https://newsupport.lenovo.com.cn</td></tr>
+<tr><td>惠普</td><td>https://support.hp.com</td></tr>
+<tr><td>华硕</td><td>https://www.asus.com.cn/support</td></tr>
+<tr><td>华为</td><td>https://consumer.huawei.com/cn/support</td></tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<p>不管什么品牌，流程都一样：<strong>确定型号 → 官网搜索 → 选对操作系统 → 按顺序下载安装</strong>。</p>
+</blockquote>
+<h2 id="通过-windows-update-手动安装"><a class="header" href="#通过-windows-update-手动安装">通过 Windows Update 手动安装</a></h2>
+<p>在 <a href="https://www.catalog.update.microsoft.com/Home.aspx">Microsoft®Update Catalog</a> 网站上可以检索到 Windows Update 服务器上的所有更新，其中包括微软官方推送的驱动，下载的更新需要使用命令安装，<strong>不推荐</strong>使用。</p>
+<h3 id="安装方式"><a class="header" href="#安装方式">安装方式</a></h3>
+<p>下载的文件为 <code>.msu</code> 和 <code>.cab</code> 文件。</p>
+<ul>
+<li>
+<p><code>.msu</code> 文件双击安装即可，或者使用命令批量静默安装</p>
+<pre><code class="language-bash">wusa C:\Updates\windows10.0-kb5034441-x64.msu /quiet /norestart
+</code></pre>
+</li>
+<li>
+<p><code>.cab</code> 文件需要使用 DISM 挂载到在线或离线系统镜像</p>
+<pre><code class="language-bash">dism /online /add-package /packagepath:"path\to\patch.cab"
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2 id="常见问题"><a class="header" href="#常见问题">常见问题</a></h2>
+<h3 id="设备管理器里还有未知设备怎么办"><a class="header" href="#设备管理器里还有未知设备怎么办">设备管理器里还有未知设备怎么办？</a></h3>
+<p>右键未知设备 → 属性 → 详细信息 → 硬件 ID，复制那串 <code>VEN_xxxx&amp;DEV_xxxx</code> 的值，去浏览器搜索，就能知道这是什么硬件、需要什么驱动。</p>
+<h3 id="官网提供了多个版本的驱动选哪个"><a class="header" href="#官网提供了多个版本的驱动选哪个">官网提供了多个版本的驱动，选哪个？</a></h3>
+<p>一般选发布日期最新的那个。如果最新版出了问题，再退回上一个版本。</p>
+<h3 id="能不能用-windows-update-自动装"><a class="header" href="#能不能用-windows-update-自动装">能不能用 Windows Update 自动装？</a></h3>
+<p>能，但不建议完全依赖。Windows Update 推送的驱动是厂商提交的 WHQL 认证版本，稳定可靠，但版本更新较慢，且可能不附带厂商的定制管理软件（比如触控板手势设置界面、Fn 快捷键管理程序）。<strong>建议核心驱动（芯片组、网卡、显卡）从官网手动下载，其余可以交给 Windows Update。</strong></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../Disk/Health.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="../Software/Recommended.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../Disk/Health.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="../Software/Recommended.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../mark-09e88c2c.min.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
+
+        <script src="../clipboard-1626706a.min.js"></script>
+        <script src="../highlight-abc7f01d.js"></script>
+        <script src="../book-609e4cb8.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>
